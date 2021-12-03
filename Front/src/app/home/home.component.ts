@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Konva from 'Konva';
+import Shapes from "./shapes";
+
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
@@ -7,6 +9,7 @@ import Konva from 'Konva';
   })
   export class homecomponent implements OnInit {
     b:any
+    shapeCreator: any = new Shapes
     shapes: any = [];
     stage!: Konva.Stage;
     layer!: Konva.Layer;
@@ -23,36 +26,19 @@ import Konva from 'Konva';
       
     }
     colors:string='black'
-    mohsen()
+    create(name:string)
     {
-      this.circle( this.colors)
+      this.b = this.shapeCreator.createShape('circle',this.colors)
       console.log(this.colors)
+      console.log(this.b)
       this.layer.add(this.b)
     }
-    circle( color:string)
-    {
-                                    
-        this.b= new Konva.Circle({
-        x:150,
-        y:150,
-        radius:90,
-        stroke:color,
-        strokeWidth:2,
-        draggable:true,
-        
-        
-      });
-      
-      console.log(this.b)
-    }
+
  
     remove()
     {
       this.layer.remove();
       this.layer = new Konva.Layer;
       this.stage.add(this.layer);
-      this.colors='red'
-      this.mohsen()
-      
     }
   }
