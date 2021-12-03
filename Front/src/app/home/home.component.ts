@@ -9,6 +9,7 @@ import Shapes from "./shapes";
   })
   export class homecomponent implements OnInit {
     b:any
+    shift: number[] = [0,0] 
     shapeCreator: any = new Shapes
     shapes: any = [];
     stage!: Konva.Stage;
@@ -26,9 +27,11 @@ import Shapes from "./shapes";
       
     }
     colors:string='black'
+
+
     create(name:string)
     {
-      this.b = this.shapeCreator.createShape('circle',this.colors)
+      this.b = this.shapeCreator.createShape(name,this.colors, 150, 150)
       console.log(this.colors)
       console.log(this.b)
       this.layer.add(this.b)
