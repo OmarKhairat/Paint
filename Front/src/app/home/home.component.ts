@@ -9,7 +9,7 @@ import Shapes from "./shapes";
   })
   export class homecomponent implements OnInit {
     b:any
-    shift: number[] = [0,0] 
+    shift: number = 0
     shapeCreator: any = new Shapes
     shapes: any = [];
     stage!: Konva.Stage;
@@ -28,10 +28,25 @@ import Shapes from "./shapes";
     }
     colors:string='black'
 
+    checkForShift(){
+      var children = this.layer.getChildren();
+      let n:number = 0 
+      this.shift = 0
+      for(let i=0 ; i<children.length ; i++){
+        if(children[i].getClassName() != 'Line'){
+            if(children[i].x() == 150 + this.shift && children[i].y() == 150 + this.shift){
+              this.shift += 10
+            }
+        }
+        
+      }
+
+    }
 
     create(name:string)
     {
-      this.b = this.shapeCreator.createShape(name,this.colors, 150, 150)
+      this.checkForShift()
+      this.b = this.shapeCreator.createShape(name,this.colors, 150+this.shift, 150+this.shift)
       console.log(this.colors)
       console.log(this.b)
       this.layer.add(this.b)
