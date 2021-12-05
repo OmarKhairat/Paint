@@ -10,13 +10,13 @@
            <p>paste</p>
            <div class="display">
                <div>
-                <i class="fas fa-cut "></i>
-                <p  >move</p>
+                <button style="width: 50px; height: 25px; margin-top: 10px; margin-left: 20px;"  [style.background]="color"
+                ></button>
+                <p style="margin-left: 30px;"> color</p>
                </div>
                <div>
-                <i class="fas fa-crop" style="margin-left: 15px;"></i>
-                <p style="margin-left: 15px;"  >resize</p>
-                <div class="section7" style="margin-top: 30px;">
+               
+                <div class="section7" style="margin-top: 80px;">
                 
                     <div id="container">
                         
@@ -80,81 +80,87 @@
          <div class="section5 " style="margin-left: 10px;">
           
         </div>
+        
         <div class="display">
-            <div class="section9">
-                    <div class="section14">
-                        <div class="section27">
-              
-                        </div>
-                    </div>
-               
+            <div class="cen">
+                
+                <button (click)='colour("white")' class="section9"></button>
+                <button (click)='colour( "blueviolet")' class="section14"></button>
+                <button (click)='colour("powderblue")' class="section27"></button>
+                
             </div>
-            <div class="section8">
-                <div class="section15">
-                    <div class="section28">
-              
-                    </div>
-                </div>
+            <div class="cen">
+                
+                <button  (click)='colour("black")' class="section8"></button>
+                <button (click)='colour("blue")' class="section15"></button>
+                <button (click)='colour("orange")' class="section28"></button>
+                
             </div>
-            <div class="section10">
-                <div class="section20">
-                    <div class="section29">
-              
-                    </div>
-                </div>
+            <div class="cen">
+                
+                <button (click)='colour("red")' class="section10"></button>
+                <button (click)='colour("rosybrown")' class="section20"></button>
+                <button (click)='colour("orangered")' class="section29"></button>
+                
             </div>
-            <div class="section11">
-                <div class="section21">
-                    <div class="section30">
-              
-                    </div>
-                </div>
+            <div class="cen">
+                
+                <button (click)='colour("yellow")' class="section11"></button>
+                <button  (click)='colour("royalblue")' class="section21"></button>
+                <button (click)='colour("orchid")' class="section30"></button>
+                
             </div>
-            <div class="section12">
-                <div class="section21">
-                    <div class="section31">
-              
-                    </div>
-                </div>
+            <div class="cen">
+                
+                <button (click)='colour("green")' class="section12"></button>
+                <button (click)='colour("aliceblue")' class="section37"></button>
+                <button (click)='colour("olive")' class="section31"></button>
+                
             </div>
-            <div class="section13">
-                <div class="section22">
-                    <div class="section32">
-              
-                    </div>
-                </div>
+            <div class="cen">
+                
+                <button (click)='colour("brown")' class="section13"></button>
+                <button (click)='colour("turquoise")' class="section22"></button>
+                <button (click)='colour("oldlace")' class="section32"></button>
+                
             </div>
-            <div class="section16">
-                <div class="section23">
-                    <div class="section33">
-              
-                    </div>
-                </div>
+            <div class="cen">
+                
+                <button (click)='colour("tomato")' class="section16"></button>
+                <button (click)='colour("thistle")' class="section23"></button>
+                <button (click)='colour("chocolate")' class="section33"></button>
+                
             </div>
-            <div class="section17">
-                <div class="section24">
-                    <div class="section34">
-              
-                    </div>
-                </div>
+            <div class="cen">
+                
+                <button (click)='colour("teal")' class="section17"></button>
+                <button (click)='colour("pink")' class="section24"></button>
+                <button (click)='colour("cornflowerblue")' class="section34"></button>
+                
             </div>
-            <div class="section18">
-                <div class="section25">
-                    <div class="section35">
-              
-                    </div>
-                </div> 
+            
+            <div class="cen">
+                
+                <button (click)='colour("lemonchiffon ")' class="section18"></button>
+                <button (click)='colour("palegreen")' class="section25"></button>
+                <button (click)='colour("chartreuse")' class="section35"></button>
+                
             </div>
-            <div class="section19">
-                <div class="section26">
-                    <div class="section36">
+            <div class="cen">
+                
+                <button (click)='colour("aqua ")' class="section19"></button>
+                <button (click)='colour("peru")' class="section26"></button>
+                <button  (click)='colour("crimson")' class="section36"></button>
+                
+            </div>          
+            <div>
+                <form action="">
+                    <div class="form-group">
+                        <img src="assets/photos/colors.PNG"  [(colorPicker)]="color" style="margin-top:20px ; margin-left: 20px;">
                       
                     </div>
-                </div>
-            </div>
-          
-            <div>
-                <img src="assets/photos/colors.PNG" style="margin-top:20px ; margin-left: 20px;">
+                </form>
+                <router-outlet></router-outlet> 
                 <P style="margin-left: 10px;">Edit color</P>
             </div>
             <div class="section5 " style="margin-left: 20px;">

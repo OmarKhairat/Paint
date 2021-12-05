@@ -2,6 +2,16 @@
 .display{
     display: flex;
 }
+.cen {
+    margin-top: 15px;
+
+}
+.cen button {
+
+    display: block; 
+    margin-left: 3px;
+    margin-top: 5px;
+}
 .section{
      width: 110px;
      background-color:gray;
@@ -49,8 +59,8 @@
 }
 
 .section9{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: white;
     margin-left: 3px;
     margin-top: 20px;
@@ -60,8 +70,8 @@
    
    }
    .section8{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: black;
     margin-left: 3px;
     margin-top: 20px;
@@ -71,8 +81,8 @@
    
    }
    .section10{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: red;
     margin-left: 3px;
     margin-top: 20px;
@@ -82,8 +92,8 @@
    
    }
    .section11{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: yellow;
     margin-left: 3px;
     margin-top: 20px;
@@ -93,8 +103,8 @@
    
    }
    .section12{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: green;
     margin-left: 3px;
     margin-top: 20px;
@@ -104,8 +114,8 @@
    
    }
    .section13{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: brown;
     margin-left: 3px;
     margin-top: 20px;
@@ -115,8 +125,8 @@
    
    }
    .section16{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color:tomato ;
     margin-left: 3px;
     margin-top: 20px;
@@ -126,8 +136,8 @@
    
    }
    .section17{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color:teal ;
     margin-left: 3px;
     margin-top: 20px;
@@ -137,8 +147,8 @@
    
    }
    .section18{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color:lemonchiffon ;
     margin-left: 3px;
     margin-top: 20px;
@@ -148,8 +158,8 @@
    
    }
    .section19{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color:aqua ;
     margin-left: 3px;
     margin-top: 20px;
@@ -159,10 +169,10 @@
    
    }
    .section14{
-    width: 14px;
-    height: 14px;
+    width: 16Px;
+    height: 16px;
     background-color: blueviolet;
-    margin-right: 20px;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
@@ -170,171 +180,190 @@
    
    }
    .section15{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: blue;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section20{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: rosybrown;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section21{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: royalblue;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
-.section21{
-    width: 14px;
-    height: 14px;
+.section37{
+    width: 16px;
+    height: 16px;
     background-color: aliceblue;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section22{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: turquoise;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section23{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: thistle;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section24{
-    width: 14px;
-    height: 14px;
+    width: 16Px;
+    height: 16px;
     background-color: pink;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section25{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: palegreen;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section26{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: peru;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section27{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: powderblue;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section28{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: orange;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section29{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: orangered;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section30{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: orchid;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section31{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: olive;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section32{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: oldlace;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section33{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: chocolate;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section34{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: cornflowerblue;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section35{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: chartreuse;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;
     border-color: black;
 }
 .section36{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background-color: crimson;
+    margin-left: 3px;
     margin-top: 20px;
     border-style: solid;
     border-width:1px ;

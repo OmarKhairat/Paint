@@ -51,6 +51,7 @@ class Shapes{
         stroke:color,
         strokeWidth:2,
         draggable:true,
+        name:'rect'
       });
       return cir
     }
@@ -64,7 +65,8 @@ class Shapes{
             height: 75,
             stroke: color,
             strokeWidth: 2,
-            draggable:true
+            draggable:true,
+            name:'rect'
 
           });
           return rect
@@ -79,7 +81,8 @@ class Shapes{
             height: 100,
             stroke: color,
             strokeWidth: 2,
-            draggable:true
+            draggable:true,
+            name:'rect'
 
           });
           return sq
@@ -94,7 +97,8 @@ class Shapes{
             radius: 70,
             stroke: color,
             strokeWidth: 2,
-            draggable:true
+            draggable:true,
+            name:'rect'
         });
         return tri
     }
@@ -108,7 +112,8 @@ class Shapes{
             radiusY: 50,
             stroke: color,
             strokeWidth: 2,
-            draggable:true
+            draggable:true,
+            name:'rect'
         });
         return elps
     }
@@ -119,7 +124,7 @@ class Shapes{
             stroke: color,
             tension: 1,
             draggable: true,
-
+            name:'rect'  
         });
 
         return line
