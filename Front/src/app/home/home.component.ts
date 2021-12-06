@@ -50,10 +50,9 @@ import Selecting from "./selecting"
             this.FreeDraw.startDraw(this.layer,this.color)
             this.drawflag = true
         }else{
-          if(this.ColorsOp.changeColor(e, this.stage, this.color))
+          if (e.target !==this.stage){
             return
-          
-          
+          }
           this.Selecting.mouseDown(e , this.stage)
         }
       });
@@ -86,6 +85,7 @@ import Selecting from "./selecting"
     colour( y:string)
     {
       this.color=y
+      
     }
 
     create(name:string)
@@ -106,7 +106,7 @@ import Selecting from "./selecting"
       this.Selecting.tr.nodes([this.b])
       this.layer.add(this.Selecting.selected)
     }
-
+ 
     changeDrawMode()
     {
       this.drawMode = !this.drawMode
@@ -123,5 +123,13 @@ import Selecting from "./selecting"
       this.operations.delete(this.Selecting.selectedShapes)
       this.Selecting.emptytr()
 
+    }
+    fill()
+    {
+      this.ColorsOp.full(this.Selecting.selectedShapes,this.color)
+    }
+    changecolr()
+    {
+      this.ColorsOp.changeColor(this.Selecting.selectedShapes,this.color)
     }
   }

@@ -18,16 +18,14 @@ class Colors{
       color5: 'rgba(45,208,45,1)'
     };
 
-    changeColor(e:any , stage: Konva.Stage, color: string){
-        if (e.target !== stage) {
-            if(e.target.getAttr('stroke') != color)
-            {
-              e.target.setAttr('stroke',color).draw()
-            }
-            return true;
-        }
-        return false
+    changeColor(shapes: Konva.Shape[], color: string){
+      for(let i=0 ; i< shapes.length ; i++)
+        shapes[i].setAttr('stroke', color)
     }
-
+    full(shapes: Konva.Shape[],clr:string)
+    {
+      for(let i=0 ; i< shapes.length ; i++)
+         shapes[i].setAttr('fill', clr)
+    }
 }
 export default Colors;

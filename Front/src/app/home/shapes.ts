@@ -3,7 +3,7 @@ import Konva from 'Konva';
 
 class Shapes{
     shape: any
-
+    clor:string="white"
     createShape(name: string, color: string, x:number, y:number)
     {
         console.log('in')
@@ -45,6 +45,7 @@ class Shapes{
     circle( color:string, x:number, y:number)
     {                            
       var cir = new Konva.Circle({
+          fill:this.clor,
         x: x,
         y: y,
         radius:90,
@@ -59,6 +60,7 @@ class Shapes{
     rectangle(color:string, x:number, y:number)
     {
         var rect = new Konva.Rect({
+            fill:this.clor,
             x:x,
             y:y,
             width: 150,
@@ -75,6 +77,7 @@ class Shapes{
     square(color:string, x:number, y:number)
     {
         var sq = new Konva.Rect({
+            fill:this.clor,
             x:x,
             y:y,
             width: 100,
@@ -91,6 +94,7 @@ class Shapes{
     triangle(color:string, x:number, y:number)
     {
         var tri = new Konva.RegularPolygon({
+            fill:this.clor,
             x:x,
             y:y,
             sides: 3,
@@ -106,6 +110,7 @@ class Shapes{
     ellipse(color:string, x:number, y:number)
     {
         var elps = new Konva.Ellipse({
+            fill:this.clor,
             x:x,
             y:y,
             radiusX: 100,
