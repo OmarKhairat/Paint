@@ -40,13 +40,13 @@
      
      <div class="section2">
         <div class="section3 display">
-         <div ><i class="fas fa-eraser fa-2x" style="color:orange; margin-top: 5px;" ></i>
+         <div ><i (click)='remove()' class="fas fa-eraser fa-2x" style="color:orange; margin-top: 5px;" ></i>
          <p>Delete</p>
          <p style="margin-top: 35px; margin-left: 25px;" >Tools</p>
          
        </div>
-          <div> <i class="fas fa-pen fa-2x" style="color:orange; margin-top: 5px; margin-left: 15px;" ></i>
-          <p style="margin-left: 12px;">Draw</p>
+          <div> <i (click)='changeDrawMode()' class="fas fa-pen fa-2x" style="color:orange; margin-top: 5px; margin-left: 15px;" ></i>
+          <p (click)='changeDrawMode()' style="margin-left: 12px;">Draw</p>
           
        </div>
        <div class="section5" style="margin-left: 20px;">

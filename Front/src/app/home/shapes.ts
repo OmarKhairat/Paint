@@ -120,7 +120,7 @@ class Shapes{
 
     line(color: string, x:number, y:number){
         var line = new Konva.Line({
-            points: [x,y,x+150,y+150],
+            points: [x,y,x+150,y],
             stroke: color,
             tension: 1,
             draggable: true,
