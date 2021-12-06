@@ -5,6 +5,9 @@ import Operation from "./operation";
 import Draw from "./freeDraw"
 import Colors from "./colors"
 import Selecting from "./selecting"
+import Request from './request';
+import { HttpClient } from '@angular/common/http';
+import { observable } from 'rxjs';
 
 
 @Component({
@@ -15,16 +18,14 @@ import Selecting from "./selecting"
 
   export class homecomponent implements OnInit {
     b:any
-
+    
     shapeCreator: any = new Shapes
     operations: any = new Operation
     ColorsOp: any = new Colors
     Selecting: any = new Selecting
-
     FreeDraw: Draw = new Draw
     drawMode: boolean = false
     drawflag: boolean = false
-
 
     stage!: Konva.Stage;
     layer!: Konva.Layer;
@@ -44,24 +45,32 @@ import Selecting from "./selecting"
       this.stage.add(this.layer);
 
       this.Selecting.initiate()
+        var inn=false
 
-      this.stage.on('mousedown', (e) => {
+        this.stage.on('mousedown', (e) => {
         if(this.drawMode){
             this.FreeDraw.startDraw(this.layer,this.color)
             this.drawflag = true
         }else{
           if (e.target !==this.stage){
+            console.log("qw")
+             inn = true
             return
           }
           this.Selecting.mouseDown(e , this.stage)
+        
         }
       });
 
-      this.stage.on('mousemove touchmove', (e) => {
+      this.stage.on('mousemove', (e) => {
         if(this.drawMode){
           this.FreeDraw.draw(this.layer,this.color)
         }else{
+          
+          inn= false
+          
           this.Selecting.mouseMove(e , this.stage)
+         
         }        
       
       });
@@ -70,12 +79,27 @@ import Selecting from "./selecting"
         if(this.drawMode){
           this.FreeDraw.endDraw()
           this.b = this.FreeDraw.line
+          this.save()
+
         }else{
+          
           this.Selecting.mouseUp(e , this.stage)
+          if(this.Selecting.selectedShapes.length !=0){
+           
+           
+            if(!inn && this.Selecting.move){
+              console.log(inn)
+              console.log(this.Selecting.selectedShapes)
+              this.save()
+              
+            }
+          }
         } 
+
       });
 
       this.stage.on('click',  (e)=> {
+        console.log("show")
         this.Selecting.click(e , this.stage)
       }); 
       
@@ -98,6 +122,9 @@ import Selecting from "./selecting"
       console.log(this.b)
       this.layer.add(this.b)
       this.addSelection()
+      this.save()
+      this.createRequest(this.b)
+
     }
 
     addSelection(){
@@ -122,11 +149,14 @@ import Selecting from "./selecting"
     {
       this.operations.delete(this.Selecting.selectedShapes)
       this.Selecting.emptytr()
+      this.save()
 
     }
     fill()
     {
       this.ColorsOp.full(this.Selecting.selectedShapes,this.color)
+      this.save()
+
     }
     changecolr()
     {
@@ -134,4 +164,45 @@ import Selecting from "./selecting"
         this.ColorsOp.changeColor(this.Selecting.selectedShapes,this.color)
       }
     }
+    save(){
+      this.request(this.b)
+    }
+
+
+
+
+
+    constructor(public http: HttpClient){}
+    request(shape: Konva.Shape){
+        var jas = shape.toJSON()
+        console.log(jas)
+        console.log(typeof jas)
+
+    }
+
+    createRequest(shape: Konva.Shape){
+        var jas = shape.toJSON()
+        this.http.get('http://localhost:8080/draw/shape',{
+          responseType:'text',
+          params:{
+              first:jas
+          },
+          observe:'response'
+        })
+        .subscribe(response=>{
+        
+          console.log(response.body!)
+        
+        })
+        //id <=
+    }
+
+    editRequest(shape: Konva.Shape){
+
+    }
+
+    deleteReqest(shape: Konva.Shape){
+
+    }
+
   }

@@ -7,7 +7,7 @@ class Selecting{
     selected:any  //the big rectange on multible shape selection
 
     selectedShapes: any
-
+    move:boolean = false
     // for vertices of the selected rectangle
     x1:any
     x2:any
@@ -34,9 +34,10 @@ class Selecting{
         this.selected.width(0);
         this.selected.height(0);
     }
-
+     
     mouseMove(e:any , stage: Konva.Stage){
         if (!this.selected.visible()) {
+            this.move = true
             return;
           }
           e.evt.preventDefault();
@@ -48,6 +49,7 @@ class Selecting{
             width: Math.abs(this.x2 - this.x1),
             height: Math.abs(this.y2 - this.y1),
         });
+        this.move = false
     }
 
     mouseUp(e:any , stage: Konva.Stage){
