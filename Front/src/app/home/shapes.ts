@@ -3,7 +3,7 @@ import Konva from 'Konva';
 
 class Shapes{
     shape: any
-    clor:string="white"
+    clor:string="transparent"
     createShape(name: string, color: string, x:number, y:number)
     {
         console.log('in')
