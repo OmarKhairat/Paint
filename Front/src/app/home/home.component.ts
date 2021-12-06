@@ -80,6 +80,7 @@ import { observable } from 'rxjs';
           this.FreeDraw.endDraw()
           this.b = this.FreeDraw.line
           this.save()
+          this.createRequest(this.b)
 
         }else{
           
