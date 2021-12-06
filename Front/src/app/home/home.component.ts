@@ -130,6 +130,8 @@ import Selecting from "./selecting"
     }
     changecolr()
     {
-      this.ColorsOp.changeColor(this.Selecting.selectedShapes,this.color)
+      if(!this.drawMode){
+        this.ColorsOp.changeColor(this.Selecting.selectedShapes,this.color)
+      }
     }
   }
