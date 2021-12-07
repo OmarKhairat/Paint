@@ -10,16 +10,27 @@
            <p>paste</p>
            <div class="display">
                <div>
-                <button  (click)='changecolr()'  style="width: 50px; height: 25px; margin-top: 10px; margin-left: 20px;"  [style.background]="color"
+                <button    style="width: 30px; height: 25px; margin-top: 10px; "  [style.background]="color"
                 ></button>
-                <p style="margin-left: 30px;"> color</p>
+                <p > color</p>
                </div>
                <div>
                
                 <div class="section7" style="margin-top: 80px;">
                 
-                    <div id="container">
-                        
+                    <div   >
+                        <div class="custom-context"  #menu>
+                              <ul>
+                                  <li (click) ="disappear()">  <i class="fas fa-copy "></i> copy</li>
+                                  <li  (click) ="disappear()" >  <i class="fas fa-paste "></i> paste</li>
+                                  <li (click)='remove()'  (click) ="disappear()">  <i class="fas fa-eraser "></i> delete</li>
+                              </ul>
+                    
+                        </div>
+                    </div>
+
+                    <div  (click)="stop($event)"   (click) ="disappear()"  (contextmenu)="contextMenu($event)" id="container">
+                       
                     </div>
                 </div>
                </div>
@@ -29,7 +40,34 @@
          </div>
      <div class="font"> <i class="fas fa-copy "></i>
         <p>copy</p>
-      
+        <div style="margin-top: 15px;" class="dropdown">
+            <button class="dropbtn">{{stroke}}
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <button style="border: black; height:1px ;" (click)=' strkewidth(1)' (click)='changeline()' value="1" href="#">1</button>
+              <button style="border: black; height:1px"(click)=' strkewidth(2)' (click)='changeline()' value="2" > 2</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(3)' (click)='changeline()' value="3" > 3</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(4)' (click)='changeline()' value="4" > 4</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(5)' (click)='changeline()' value="5" > 5</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(6)' (click)='changeline()' value="6" > 6</button>
+              <button style="border: black ; height:1px" (click)=' strkewidth(7)' (click)='changeline()' value="7" > 7</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(8)' (click)='changeline()' value="8" > 8</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(9)' (click)='changeline()' value="9" > 9</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(10)' (click)='changeline()' value="10" > 10</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(11)' (click)='changeline()' value="11" > 11</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(12)' (click)='changeline()' value="12" > 12</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(13)' (click)='changeline()' value="13" > 13</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(14)' (click)='changeline()' value="14" > 14</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(15)' (click)='changeline()' value="15" > 15</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(16)' (click)='changeline()' value="16" > 16</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(17)' (click)='changeline()' value="17" > 17</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(18)' (click)='changeline()' value="18" > 18</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(19)' (click)='changeline()' value="19" > 19</button>
+              <button style="border: black; height:1px" (click)=' strkewidth(20)' (click)='changeline()' value="20" > 20</button>
+            </div>
+          </div>
+     <p style="margin-bottom: 15px;">stroke</p>
     </div>
        
         <div class="section4" >
@@ -162,7 +200,7 @@
             <div>
                 <form action="">
                     <div class="form-group">
-                        <img src="assets/photos/colors.PNG"  [(colorPicker)]="color" style="margin-top:20px ; margin-left: 20px;">
+                        <img (colorPickerChange)='changecolr()' src="assets/photos/colors.PNG"  [(colorPicker)]="color" style="margin-top:20px ; margin-left: 20px;">
                       
                     </div>
                 </form>
@@ -170,7 +208,7 @@
                 <P style="margin-left: 10px;">Edit color</P>
             </div>
             <div class="section5 " style="margin-left: 20px;">
-               
+                
             </div>
         
         </div>
