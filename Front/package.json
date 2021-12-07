@@ -21,6 +21,9 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "angular-canvas": "^0.3.0",
     "i": "^0.3.7",
+    "konva": "^8.3.0",
+    "ngx-color-picker": "^11.0.0",
+    "require": "^2.4.20",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
