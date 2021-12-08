@@ -165,6 +165,16 @@ import { observable } from 'rxjs';
       }else if(this.drawflag)
         this.addSelection()
 
+      this.backGround()
+    }
+
+    backGround(){
+      if(this.drawMode){
+        document.getElementById('draw')!.style.backgroundColor ="#777777";
+        console.log("inn")
+      }else{
+        document.getElementById('draw')!.style.backgroundColor = "rgb(255, 255, 255)";
+      }
     }
 
     remove()
@@ -197,6 +207,8 @@ import { observable } from 'rxjs';
       this.save()
       
     }
+
+
 
 
 

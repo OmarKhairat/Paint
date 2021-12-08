@@ -6,8 +6,11 @@
 </div>
 <div class="display" >
      <div class="section display">
-      <div class="font">  <i class="fas fa-paste "></i>
+      <div class="font"> 
+        <button class="button">
+           <i class="fas fa-paste "></i>
            <p>paste</p>
+        </button>
            <div class="display">
                <div>
                 <button    style="width: 30px; height: 25px; margin-top: 10px; "  [style.background]="color"
@@ -38,8 +41,13 @@
            </div>
          
          </div>
-     <div class="font"> <i class="fas fa-copy "></i>
-        <p>copy</p>
+     <div class="font"> 
+         <button class="button">
+            <i class="fas fa-copy"></i>
+            <p>copy</p>
+
+         </button>
+
         <div style="margin-top: 15px;" class="dropdown">
             <button class="dropbtn">{{stroke}}
                 <i class="fa fa-caret-down"></i>
@@ -78,19 +86,33 @@
      
      <div class="section2">
         <div class="section3 display">
-         <div ><i (click)='remove()' class="fas fa-eraser " style="color:orange; margin-top: 25px;" ></i>
-         <p>Delete</p>
+                <div>
+                
+                <button (click)='remove()' style="margin-top: 15px;" class="button">
+                    <i class="fas fa-eraser " style="color:orange; margin-top: 25px;" ></i>
+                    <p>Delete</p>
+                </button>
+
+                </div>
          
          
          
-       </div>
+       
        <div >
-        <i style="margin-top: 25px; color:orange; margin-left: 10px;" (click)="fill()" class="fas fa-fill"></i>
-        <p style="margin-left: 10px;" >fill</p>
-        <p style="margin-top: 30px; " >Tools</p>
-       </div>      
-          <div> <i (click)='changeDrawMode()' class="fas fa-pen " style="color:orange; margin-top: 25px; margin-left: 5px;" ></i>
-          <p (click)='changeDrawMode()' style="margin-left: 5px;" >Draw</p>
+        <button (click)="fill()" style="margin-top: 15px;" class="button">
+            <i style="margin-top: 25px; color:orange; margin-left: 10px;" class="fas fa-fill"></i>
+            <p style="margin-left: 10px;" >fill</p>
+        </button>
+
+        <p style="margin-top: 10px; " >Tools</p>
+       </div> 
+
+        <div>
+            <button (click)='changeDrawMode()' style="margin-top: 15px;" class="button" id="draw">
+            <i class="fas fa-pen " style="color:orange; margin-top: 25px; margin-left: 5px;" ></i>
+            <p style="margin-left: 5px;" >Draw</p>
+
+            </button>
         
        </div>
        <div class="section5" style="margin-left: 10px;">
