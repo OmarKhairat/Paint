@@ -208,14 +208,7 @@ import { observable } from 'rxjs';
       this.ColorsOp.strokewidth(this.Selecting.selectedShapes,this.stroke)
       this.requests.editRequest()
     }
-    changeline()
-    {
-      
-      console.log(this.Selecting.selectedShapes)
-      this.ColorsOp.strokewidth(this.Selecting.selectedShapes,this.stroke)
-      this.save()
-      
-    }
+
 
 
 
