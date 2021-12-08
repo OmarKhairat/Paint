@@ -11,7 +11,6 @@ class Request{
 
     createRequest(shape: Konva.Shape){
         var jas = shape.toJSON()
-        var jas = shape.toJSON()
         this.http.get('http://localhost:8080/draw/shape',{
           responseType:'text',
           params:{
