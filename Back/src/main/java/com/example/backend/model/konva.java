@@ -45,9 +45,11 @@ public class konva
     {
         long id = Long.parseLong(StrID);
         IShape tempShape = shapes.get(id);
+        System.out.println("Before:" + gson.toJson(shapes.get(id).ShapeHM()));
         tempShape.setProperties(JString);
         shapes.remove(id);
         shapes.put(id, tempShape);
+        System.out.println("After:" + gson.toJson(shapes.get(id).ShapeHM()));
     }
     public void preformDeletion(String StrID)
     {
