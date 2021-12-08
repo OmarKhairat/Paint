@@ -11,7 +11,7 @@ class Request{
 
     createRequest(shape: Konva.Shape){
         var jas = shape.toJSON()
-        this.http.get('http://localhost:8080/controller/draw',{
+        this.http.get('http://localhost:8888/controller/draw',{
           responseType:'text',
           params:{
               first:jas
@@ -31,7 +31,7 @@ class Request{
       for(let i=0 ; i<shapes.length ; i++){
         var shape = shapes[i]
         var jas = shape.toJSON()
-        this.http.get('http://localhost:8080/controller/edit',{
+        this.http.get('http://localhost:8888/controller/edit',{
           responseType:'text',
           params:{
               shape:jas,
