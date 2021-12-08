@@ -443,6 +443,7 @@
 .button:active {
     background-color: #777777;
 }
+
 .hide{
     display: none;
    }
@@ -457,3 +458,4 @@
 #container{
     cursor: crosshair;
 }
+
