@@ -1,9 +1,9 @@
-package com.example.backend.model;
-
-import java.util.HashMap;
-
-public interface IShape
-{
-    void setProperties(String JString);
-    HashMap<String, Object> ShapeHM();
-}
+//package com.example.backend.model;
+//
+//import java.util.HashMap;
+//
+//public interface IShape
+//{
+//    void setProperties(String JString);
+//    HashMap<String, Object> ShapeHM();
+//}

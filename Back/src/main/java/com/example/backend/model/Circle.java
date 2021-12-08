@@ -1,20 +1,20 @@
 package com.example.backend.model;
 
-import java.util.HashMap;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Rectangle implements IShape
+import java.util.HashMap;
+
+public class Circle implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;
-    public Rectangle()
+    public Circle()
     {
         attrs = new HashMap<String, Object>();
-        className = "Rect";
+        className = "Circle";
     }
-
+//    {"attrs":{"fill":"transparent","x":190,"y":190,"radius":90,"stroke":"black","draggable":true,"name":"rect"},"className":"Circle"}
     @Override
     public void setProperties(String JString)
     {
@@ -26,8 +26,7 @@ public class Rectangle implements IShape
             attrs.put("fill", jsonObject2.getString("fill"));
             attrs.put("x", jsonObject2.getDouble("x"));
             attrs.put("y", jsonObject2.getDouble("y"));
-            attrs.put("width", jsonObject2.getDouble("width"));
-            attrs.put("height", jsonObject2.getDouble("height"));
+            attrs.put("radius", jsonObject2.getDouble("radius"));
             attrs.put("stroke", jsonObject2.getString("stroke"));
             attrs.put("draggable", jsonObject2.getBoolean("draggable"));
             attrs.put("name", jsonObject2.getString("name"));
@@ -36,6 +35,7 @@ public class Rectangle implements IShape
             attrs.put("skewX", jsonObject2.getDouble("skewX"));
             attrs.put("rotation", jsonObject2.getDouble("rotation"));
             attrs.put("strokeWidth", jsonObject2.getDouble("strokeWidth"));
+
         }
         catch (JSONException e)
         {

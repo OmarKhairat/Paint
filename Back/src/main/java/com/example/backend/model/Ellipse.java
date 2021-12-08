@@ -1,33 +1,32 @@
 package com.example.backend.model;
 
-import java.util.HashMap;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Rectangle implements IShape
+import java.util.HashMap;
+
+public class Ellipse implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;
-    public Rectangle()
+    public Ellipse()
     {
         attrs = new HashMap<String, Object>();
-        className = "Rect";
+        className = "Ellipse";
     }
-
     @Override
     public void setProperties(String JString)
     {
+//        {"attrs":{"fill":"transparent","x":150,"y":150,"radiusX":100,"radiusY":50,"stroke":"black","draggable":true,"name":"rect"},"className":"Ellipse"}
         try
         {
             JSONObject jsonObject = new JSONObject(JString);
             JSONObject jsonObject2 = new JSONObject(jsonObject.getString("attrs"));
-//            {"fill":"transparent","x":160,"y":160,"width":150,"height":75,"stroke":"royalblue","draggable":true,"name":"rect"},"className":"Rect"}
             attrs.put("fill", jsonObject2.getString("fill"));
             attrs.put("x", jsonObject2.getDouble("x"));
             attrs.put("y", jsonObject2.getDouble("y"));
-            attrs.put("width", jsonObject2.getDouble("width"));
-            attrs.put("height", jsonObject2.getDouble("height"));
+            attrs.put("radiusX", jsonObject2.getDouble("radiusX"));
+            attrs.put("radiusY", jsonObject2.getDouble("radiusY"));
             attrs.put("stroke", jsonObject2.getString("stroke"));
             attrs.put("draggable", jsonObject2.getBoolean("draggable"));
             attrs.put("name", jsonObject2.getString("name"));

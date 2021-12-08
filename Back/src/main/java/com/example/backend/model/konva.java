@@ -6,14 +6,14 @@ import java.util.HashMap;
 
 public class konva
 {
-    private HashMap<Long, Object> shapes;
+    private HashMap<Long, IShape> shapes;
     private ShapeFactory factory;
     private static konva sheet;
     private long currentID = 0;
     private Gson gson = new Gson();
     private konva()
     {
-        shapes = new HashMap<Long, Object>();;
+        shapes = new HashMap<Long, IShape>();;
         factory = new ShapeFactory();
     }
     public static konva getInstance()
@@ -35,8 +35,10 @@ public class konva
     public long drawShape(String JString)
     {
         IShape drawnShape = factory.createShape(JString);
-        System.out.println(gson.toJson(drawnShape.ShapeHM()));
         setCurrentID();
+        shapes.put(getCurrentID(), drawnShape);
+        drawnShape = shapes.get(getCurrentID());
+        System.out.println(gson.toJson(drawnShape.ShapeHM()));
         return  getCurrentID();
     }
 }

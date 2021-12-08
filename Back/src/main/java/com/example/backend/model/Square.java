@@ -1,15 +1,15 @@
 package com.example.backend.model;
 
-import java.util.HashMap;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Rectangle implements IShape
+import java.util.HashMap;
+
+public class Square implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;
-    public Rectangle()
+    public Square()
     {
         attrs = new HashMap<String, Object>();
         className = "Rect";
@@ -36,6 +36,7 @@ public class Rectangle implements IShape
             attrs.put("skewX", jsonObject2.getDouble("skewX"));
             attrs.put("rotation", jsonObject2.getDouble("rotation"));
             attrs.put("strokeWidth", jsonObject2.getDouble("strokeWidth"));
+
         }
         catch (JSONException e)
         {
