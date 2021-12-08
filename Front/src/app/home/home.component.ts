@@ -17,8 +17,9 @@ import { observable } from 'rxjs';
   })
 
   export class homecomponent implements OnInit {
-    b:any
     
+    b:any
+    requests:any = new Request(this.http)
     shapeCreator: any = new Shapes
     operations: any = new Operation
     ColorsOp: any = new Colors
@@ -26,11 +27,11 @@ import { observable } from 'rxjs';
     FreeDraw: Draw = new Draw
     drawMode: boolean = false
     drawflag: boolean = false
-
+    
     stage!: Konva.Stage;
     layer!: Konva.Layer;
-
-
+     
+ 
 
     color: string = 'black'
    stroke:number=3
@@ -53,12 +54,15 @@ import { observable } from 'rxjs';
    {
      e.stopPropagtion();
    }
-    ngOnInit(): void {    
+
+    ngOnInit(): void {  
+        
       this.stage = new Konva.Stage({  //create the stage
         container: 'container',
         width: window.innerWidth,
         height: window.innerHeight
       });
+      
       this.layer = new Konva.Layer;
       this.stage.add(this.layer);
 
@@ -97,8 +101,7 @@ import { observable } from 'rxjs';
         if(this.drawMode){
           this.FreeDraw.endDraw()
           this.b = this.FreeDraw.line
-          this.save()
-          this.createRequest(this.b)
+          this.requests.createRequest(this.b)
 
         }else{
           
@@ -109,7 +112,7 @@ import { observable } from 'rxjs';
             if(!inn && this.Selecting.move){
               console.log(inn)
               console.log(this.Selecting.selectedShapes)
-              this.save()
+              this.requests.editRequest()
               
             }
           }
@@ -144,8 +147,7 @@ import { observable } from 'rxjs';
       console.log(this.b)
       this.layer.add(this.b)
       this.addSelection()
-      this.save()
-      this.createRequest(this.b)
+      this.requests.createRequest(this.b)
 
     }
 
@@ -181,31 +183,30 @@ import { observable } from 'rxjs';
     {
       this.operations.delete(this.Selecting.selectedShapes)
       this.Selecting.emptytr()
-      this.save()
+      this.requests.deleteReqest()
 
     }
     fill()
     {
       this.ColorsOp.full(this.Selecting.selectedShapes,this.color)
-      this.save()
+      this.requests.editRequest()
 
     }
     changecolr()
     {
       if(!this.drawMode){
         this.ColorsOp.changeColor(this.Selecting.selectedShapes,this.color)
+        this.requests.editRequest()
       }
+
     }
-    save(){
-      this.request(this.b)
-    }
+
     changeline()
     {
       
       console.log(this.Selecting.selectedShapes)
       this.ColorsOp.strokewidth(this.Selecting.selectedShapes,this.stroke)
-      this.save()
-      
+      this.requests.editRequest()
     }
 
 
@@ -214,36 +215,7 @@ import { observable } from 'rxjs';
 
 
     constructor(public http: HttpClient){}
-    request(shape: Konva.Shape){
-        var jas = shape.toJSON()
-        console.log(jas)
-        console.log(typeof jas)
 
-    }
-
-    createRequest(shape: Konva.Shape){
-        var jas = shape.toJSON()
-        this.http.get('http://localhost:8080/draw/shape',{
-          responseType:'text',
-          params:{
-              first:jas
-          },
-          observe:'response'
-        })
-        .subscribe(response=>{
-        
-          console.log(response.body!)
-        
-        })
-        //id <=
-    }
-
-    editRequest(shape: Konva.Shape){
-
-    }
-
-    deleteReqest(shape: Konva.Shape){
-
-    }
+    
 
   }
