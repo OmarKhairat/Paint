@@ -180,10 +180,10 @@ import { observable } from 'rxjs';
         console.log(typeof jas)
 
     }
-
+//edited by Omar
     createRequest(shape: Konva.Shape){
         var jas = shape.toJSON()
-        this.http.get('http://localhost:8080/draw/shape',{
+        this.http.get('http://localhost:8888/controller/draw',{
           responseType:'text',
           params:{
               first:jas
