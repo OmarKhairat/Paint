@@ -33,7 +33,7 @@ import { observable } from 'rxjs';
 
 
     color: string = 'black'
-   stroke:number=2
+   stroke:number=3
    @ViewChild('menu ') menu!:ElementRef
    contextMenu(e:any)
    {

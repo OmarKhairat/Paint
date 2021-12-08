@@ -19,6 +19,10 @@ class Draw{
             globalCompositeOperation:'source-over' ,
             lineCap: 'round',
             points: [pos.x, pos.y , pos.x, pos.y],
+            scaleX: 0.999999,
+            scaleY: 0.999999,
+            skewX: 1e-17,
+            rotation: 1e-17,
             name:'rect',
             draggable: true
           });
