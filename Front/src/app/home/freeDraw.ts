@@ -6,7 +6,7 @@ class Draw{
     line! : Konva.Line
 
 
-    startDraw(layer: Konva.Layer , color: string){
+    startDraw(layer: Konva.Layer , color: string ,stroke:number ){
         
         this.drawing=true
         var stage = layer.getStage()
@@ -15,10 +15,14 @@ class Draw{
 
         this.line = new Konva.Line({
             stroke: color,
-            strokeWidth: 3,
+            strokeWidth: stroke,
             globalCompositeOperation:'source-over' ,
             lineCap: 'round',
             points: [pos.x, pos.y , pos.x, pos.y],
+            scaleX: 0.999999,
+            scaleY: 0.999999,
+            skewX: 1e-17,
+            rotation: 1e-17,
             name:'rect',
             draggable: true
           });
@@ -26,7 +30,7 @@ class Draw{
           
     }
 
-    draw(layer: Konva.Layer , color: string){
+    draw(layer: Konva.Layer ){
         
         if (!this.drawing){
             return;

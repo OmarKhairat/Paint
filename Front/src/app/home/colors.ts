@@ -27,5 +27,10 @@ class Colors{
       for(let i=0 ; i< shapes.length ; i++)
          shapes[i].setAttr('fill', clr)
     }
+    strokewidth(shapes:Konva.Shape[],stroke:number){
+      console.log("ww")
+      for(let i=0 ; i< shapes.length ; i++)
+        shapes[i].setAttr('strokeWidth', stroke)
+    }
 }
 export default Colors;

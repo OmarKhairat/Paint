@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild,ElementRef } from '@angular/core';
 import Konva from 'Konva';
 import Shapes from "./shapes";
 import Operation from "./operation";
@@ -33,8 +33,26 @@ import { observable } from 'rxjs';
 
 
     color: string = 'black'
-
-
+   stroke:number=3
+   @ViewChild('menu ') menu!:ElementRef
+   contextMenu(e:any)
+   {
+     console.log(e.pageX)
+     console.log(e.pageY)
+     e.preventDefault()
+     this.menu.nativeElement.style.display="block"
+     this.menu.nativeElement.style.top=e.pageY+"px"
+     this.menu.nativeElement.style.left=e.pageX+"px"
+     
+   }
+   disappear()
+   {
+     this.menu.nativeElement.style.display="none"
+   }
+   stop(e:any)
+   {
+     e.stopPropagtion();
+   }
     ngOnInit(): void {    
       this.stage = new Konva.Stage({  //create the stage
         container: 'container',
@@ -49,7 +67,7 @@ import { observable } from 'rxjs';
 
         this.stage.on('mousedown', (e) => {
         if(this.drawMode){
-            this.FreeDraw.startDraw(this.layer,this.color)
+            this.FreeDraw.startDraw(this.layer,this.color,this.stroke)
             this.drawflag = true
         }else{
           if (e.target !==this.stage){
@@ -64,7 +82,7 @@ import { observable } from 'rxjs';
 
       this.stage.on('mousemove', (e) => {
         if(this.drawMode){
-          this.FreeDraw.draw(this.layer,this.color)
+          this.FreeDraw.draw(this.layer)
         }else{
           
           inn= false
@@ -112,13 +130,16 @@ import { observable } from 'rxjs';
       this.color=y
       
     }
-
+    strkewidth(y:number )
+    {
+      this.stroke=y
+    }
     create(name:string)
     {
       if(this.drawMode)
         this.changeDrawMode()
       var shift = this.operations.checkForShift(this.layer , name)
-      this.b = this.shapeCreator.createShape(name,this.color, 150+shift, 150+shift)
+      this.b = this.shapeCreator.createShape(name,this.color, 150+shift, 150+shift,this.stroke)
       console.log(this.color)
       console.log(this.b)
       this.layer.add(this.b)
@@ -144,6 +165,16 @@ import { observable } from 'rxjs';
       }else if(this.drawflag)
         this.addSelection()
 
+      this.backGround()
+    }
+
+    backGround(){
+      if(this.drawMode){
+        document.getElementById('draw')!.style.backgroundColor ="#777777";
+        console.log("inn")
+      }else{
+        document.getElementById('draw')!.style.backgroundColor = "rgb(255, 255, 255)";
+      }
     }
 
     remove()
@@ -168,6 +199,15 @@ import { observable } from 'rxjs';
     save(){
       this.request(this.b)
     }
+    changeline()
+    {
+      
+      console.log(this.Selecting.selectedShapes)
+      this.ColorsOp.strokewidth(this.Selecting.selectedShapes,this.stroke)
+      this.save()
+      
+    }
+
 
 
 
@@ -183,7 +223,7 @@ import { observable } from 'rxjs';
 
     createRequest(shape: Konva.Shape){
         var jas = shape.toJSON()
-        this.http.get('http://localhost:8080/draw/shape',{
+        this.http.get('http://localhost:8888/controller/draw',{
           responseType:'text',
           params:{
               first:jas
