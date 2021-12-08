@@ -48,7 +48,7 @@ class Request{
     deleteReqest(shapes: Konva.Shape[]){
       for(let i=0 ; i<shapes.length ; i++){
         var shape = shapes[i]
-        this.http.get('http://localhost:8080/controller/delete',{
+        this.http.get('http://localhost:8888/controller/delete',{
           responseType:'text',
           params:{
               id : shape.getAttr("id")

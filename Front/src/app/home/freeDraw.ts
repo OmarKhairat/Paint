@@ -14,6 +14,8 @@ class Draw{
 
 
         this.line = new Konva.Line({
+            x:1e-17,
+            y:1e-17,
             stroke: color,
             strokeWidth: stroke,
             globalCompositeOperation:'source-over' ,

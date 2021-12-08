@@ -152,6 +152,8 @@ class Shapes{
 
     line(color: string, x:number, y:number ,stroke:number){
         var line = new Konva.Line({
+            x:1e-17,
+            y:1e-17,
             points: [x,y,x+150,y],
             scaleX: 0.999999,
             scaleY: 0.999999,
