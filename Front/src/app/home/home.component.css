@@ -443,6 +443,13 @@
 .button:active {
     background-color: #777777;
 }
-
+.hide{
+    display: none;
+   }
+   .appear:hover + .hide{
+       display: block;
+       background-color: black;
+       color: white;
+    }
 
 
