@@ -58,6 +58,18 @@ public class MainController
 ////        return res;
 //        return res;
     }
+    @GetMapping("/edit")
+    public String editShape(@RequestParam String shape, @RequestParam String id)
+    {
+        drawSheet.preformEdition(shape, id);
+        return "The Shape is edited.";
+    }
+    @GetMapping("/delete")
+    public String deleteShape(@RequestParam String id)
+    {
+        drawSheet.preformDeletion(id);
+        return "The Shape is deleted.";
+    }
 
 
 }

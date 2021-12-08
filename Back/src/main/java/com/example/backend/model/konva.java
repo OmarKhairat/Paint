@@ -41,4 +41,17 @@ public class konva
         System.out.println(gson.toJson(drawnShape.ShapeHM()));
         return  getCurrentID();
     }
+    public void preformEdition(String JString, String StrID)
+    {
+        long id = Long.parseLong(StrID);
+        IShape tempShape = shapes.get(id);
+        tempShape.setProperties(JString);
+        shapes.remove(id);
+        shapes.put(id, tempShape);
+    }
+    public void preformDeletion(String StrID)
+    {
+        long id = Long.parseLong(StrID);
+        shapes.remove(id);
+    }
 }
