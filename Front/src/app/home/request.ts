@@ -1,7 +1,7 @@
 import Konva from 'Konva';
 import {HttpClient} from '@angular/common/http';
 class Request{
-    constructor(public http: HttpClient){}
+    constructor(private http: HttpClient){}
     request(shape: Konva.Shape){
         var jas = shape.toJSON()
         console.log(jas)
@@ -11,7 +11,18 @@ class Request{
 
     createRequest(shape: Konva.Shape){
         var jas = shape.toJSON()
-
+        this.http.get('http://localhost:8080/draw/shape',{
+          responseType:'text',
+          params:{
+              first:jas
+          },
+          observe:'response'
+        })
+        .subscribe(response=>{
+        
+          console.log(response.body!)
+        
+        })
         //id <=
     }
 

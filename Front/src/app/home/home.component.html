@@ -1,8 +1,24 @@
 <div class="display">
-    <img src="assets/photos/draw.PNG">
-    <img src="assets/photos/save.PNG">
-    <img src="assets/photos/redo.PNG">
-    <img src="assets/photos/undo.PNG" style="margin-top: 2px;">
+    <img style="margin-bottom: 5px;" src="assets/photos/draw.PNG">
+    <div >
+        <img class="appear" style="margin-top: 5px;" src="assets/photos/save.PNG">
+        <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
+            save
+           </div>
+    </div>
+    <div>
+        <img class="appear" style="margin-top: 1px;" src="assets/photos/redo.PNG">
+        <div class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
+            redo
+           </div>
+    </div>
+     <div>
+        <img src="assets/photos/undo.PNG" class="appear" style="margin-top: 2px;">
+        <div class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
+            undo
+           </div>
+     </div>
+   
 </div>
 <div class="display" >
      <div class="section display">
@@ -120,25 +136,40 @@
        </div>
          <div class="display">
              <div>
-                 <img  (click)='create("square")' src="assets/photos/square.PNG" style="margin-top:18px;">
-                
+                 <img class="appear"  (click)='create("square")' src="assets/photos/square.PNG" style="margin-top:18px;">
+                 <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    square
+                   </div>
                   <div>
-                    <img (click)='create("line")' src="assets/photos/line2.PNG" style="margin-top:15px ; margin-left: 3px;">
+                    <img class="appear" (click)='create("line")' src="assets/photos/line2.PNG" style="margin-top:15px ; margin-left: 3px;">
+                    <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
+                        line
+                       </div>
                   </div>
            </div>
-            <div> <img (click)='create("rectangle")' src="assets/photos/rectangle.PNG" style="margin-top:18px ; margin-left: 8px;">
-                <div><img (click)='create("circle")' src="assets/photos/ellipse.PNG" style="margin-top:15px ; margin-left: 8px;">
-
+            <div> <img class="appear" (click)='create("rectangle")' src="assets/photos/rectangle.PNG" style="margin-top:18px ; margin-left: 8px;">
+                <div class="hide" style="border: 1px solid black ;width: 60px; position: fixed; z-index: 1000000;  ">
+                    rectangle
+                   </div>
+                <div><img class="appear" (click)='create("circle")' src="assets/photos/ellipse.PNG" style="margin-top:15px ; margin-left: 8px;">
+                    <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                        circle
+                       </div>
                     <div>
                         <P>Shapes</P>
                     </div>
                 </div>
                
             </div>
-            <div> <img (click)='create("triangle")' src="assets/photos/triangle2.PNG" style="margin-top:17px ; ">
+            <div> <img class="appear" (click)='create("triangle")' src="assets/photos/triangle2.PNG" style="margin-top:17px ; ">
+                <div class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+                    triangle
+                   </div>
                 <div>
-                    <img (click)='create("ellipse")' src="assets/photos/ellipse.PNG" style="margin-top:11px ;">
-                  
+                    <img class="appear" (click)='create("ellipse")' src="assets/photos/ellipse.PNG" style="margin-top:11px ;">
+                    <div class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+                        ellipse
+                       </div>
                   </div>
             </div>
          </div>
@@ -150,73 +181,159 @@
         <div class="display">
             <div class="cen">
                 
-                <button (click)='colour("white")' class="section9"></button>
-                <button (click)='colour( "blueviolet")' class="section14"></button>
-                <button (click)='colour("powderblue")' class="section27"></button>
+                <button (click)='colour("white")' class="section9 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    white
+                   </div>
+                <button (click)='colour( "transparent")' class="section14 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 70px; position: fixed; z-index: 1000000;  ">
+                    transparent
+                   </div>
+                <button (click)='colour("powderblue")' class="section27 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 80px; position: fixed; z-index: 1000000;  ">
+                    powderblue
+                   </div>
+            </div>
+            <div class="cen">
+                
+                <button  (click)='colour("black")' (click)='changecolr() ' class="section8 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    black
+                   </div>
+                <button (click)='colour("blue")'(click)='changecolr()' class="section15 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
+                    blue
+                   </div>
+                <button (click)='colour("orange")' (click)='changecolr()' class="section28 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    orange
+                   </div>
+            </div>
+            <div class="cen">
+                
+                <button (click)='colour("red")' (click)='changecolr()' class="section10 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 20px; position: fixed; z-index: 1000000;  ">
+                    red
+                   </div>
+                <button (click)='colour("rosybrown")' (click)='changecolr()' class="section20 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 69px; position: fixed; z-index: 1000000;  ">
+                    rosybrown
+                   </div>
+                <button (click)='colour("orangered")' (click)='changecolr()' class="section29 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 65px; position: fixed; z-index: 1000000;  ">
+                    orangered
+                   </div>
                 
             </div>
             <div class="cen">
                 
-                <button  (click)='colour("black")' (click)='changecolr()' class="section8"></button>
-                <button (click)='colour("blue")'(click)='changecolr()' class="section15"></button>
-                <button (click)='colour("orange")' (click)='changecolr()' class="section28"></button>
+                <button (click)='colour("yellow")' (click)='changecolr()' class="section11 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+                    yellow
+                   </div>
+                <button  (click)='colour("royalblue")' (click)='changecolr()' class="section21 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 60px; position: fixed; z-index: 1000000;  ">
+                    royalblue
+                   </div>
+                <button (click)='colour("orchid")' (click)='changecolr()' class="section30 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    orchid
+                   </div>
                 
             </div>
             <div class="cen">
                 
-                <button (click)='colour("red")' (click)='changecolr()' class="section10"></button>
-                <button (click)='colour("rosybrown")' (click)='changecolr()' class="section20"></button>
-                <button (click)='colour("orangered")' (click)='changecolr()' class="section29"></button>
+                <button (click)='colour("green")' (click)='changecolr()' class="section12 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    green
+                   </div>
+                <button (click)='colour("aliceblue")' (click)='changecolr()' class="section37 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 60px; position: fixed; z-index: 1000000;  ">
+                    aliceblue
+                   </div>
+                <button (click)='colour("olive")' (click)='changecolr()' class="section31 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
+                    olive
+                   </div>
+            </div>
+            <div class="cen">
+                
+                <button (click)='colour("brown")' (click)='changecolr()' class="section13 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    brown
+                   </div>
+                <button (click)='colour("turquoise")' (click)='changecolr()' class="section22 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 60px; position: fixed; z-index: 1000000;  ">
+                    turquoise
+                   </div>
+                <button (click)='colour("oldlace")' (click)='changecolr()' class="section32 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+                    oldlace
+                   </div>
                 
             </div>
             <div class="cen">
                 
-                <button (click)='colour("yellow")' (click)='changecolr()' class="section11"></button>
-                <button  (click)='colour("royalblue")' (click)='changecolr()' class="section21"></button>
-                <button (click)='colour("orchid")' (click)='changecolr()' class="section30"></button>
+                <button (click)='colour("tomato")' (click)='changecolr()' class="section16 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    tomato
+                   </div>
+                <button (click)='colour("thistle")' (click)='changecolr()' class="section23 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
+                    thistle
+                   </div>
+                <button (click)='colour("chocolate")' (click)='changecolr()' class="section33 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 60px; position: fixed; z-index: 1000000;  ">
+                    chocolate
+                   </div>
                 
             </div>
             <div class="cen">
                 
-                <button (click)='colour("green")' (click)='changecolr()' class="section12"></button>
-                <button (click)='colour("aliceblue")' (click)='changecolr()' class="section37"></button>
-                <button (click)='colour("olive")' (click)='changecolr()' class="section31"></button>
-                
-            </div>
-            <div class="cen">
-                
-                <button (click)='colour("brown")' (click)='changecolr()' class="section13"></button>
-                <button (click)='colour("turquoise")' (click)='changecolr()' class="section22"></button>
-                <button (click)='colour("oldlace")' (click)='changecolr()' class="section32"></button>
-                
-            </div>
-            <div class="cen">
-                
-                <button (click)='colour("tomato")' (click)='changecolr()' class="section16"></button>
-                <button (click)='colour("thistle")' (click)='changecolr()' class="section23"></button>
-                <button (click)='colour("chocolate")' (click)='changecolr()' class="section33"></button>
-                
-            </div>
-            <div class="cen">
-                
-                <button (click)='colour("teal")' (click)='changecolr()' class="section17"></button>
-                <button (click)='colour("pink")' (click)='changecolr()' class="section24"></button>
-                <button (click)='colour("cornflowerblue")' (click)='changecolr()' class="section34"></button>
-                
+                <button (click)='colour("teal")' (click)='changecolr()' class="section17 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
+                    teal
+                   </div>
+                <button (click)='colour("pink")' (click)='changecolr()' class="section24 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
+                    pink
+                   </div>
+                <button (click)='colour("cornflowerblue")' (click)='changecolr()' class="section34 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 100px; position: fixed; z-index: 1000000;  ">
+                    cornflowerblue
+                   </div>
             </div>
             
             <div class="cen">
                 
-                <button (click)='colour("lemonchiffon ")' (click)='changecolr()' class="section18"></button>
-                <button (click)='colour("palegreen")' (click)='changecolr()' class="section25"></button>
-                <button (click)='colour("chartreuse")' (click)='changecolr()' class="section35"></button>
+                <button (click)='colour("lemonchiffon ")' (click)='changecolr()' class="section18 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 85px; position: fixed; z-index: 1000000;  ">
+                    lemonchiffon
+                   </div>
+                <button (click)='colour("palegreen")' (click)='changecolr()' class="section25 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 60px; position: fixed; z-index: 1000000;  ">
+                    palegreen
+                   </div>
+                <button (click)='colour("chartreuse")' (click)='changecolr()' class="section35 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 70px; position: fixed; z-index: 1000000;  ">
+                    chartreuse
+                   </div>
                 
             </div>
             <div class="cen">
                 
-                <button (click)='colour("aqua ")' (click)='changecolr()' class="section19"></button>
-                <button (click)='colour("peru")' (click)='changecolr()' class="section26"></button>
-                <button  (click)='colour("crimson")' (click)='changecolr()' class="section36"></button>
+                <button (click)='colour("aqua ")' (click)='changecolr()' class="section19 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
+                    aqua
+                   </div>
+                <button (click)='colour("peru")' (click)='changecolr()' class="section26 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
+                    peru
+                   </div>
+                <button  (click)='colour("crimson")' (click)='changecolr()' class="section36 appear"></button>
+                <div class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+                    crimson
+                   </div>
                 
             </div>          
             <div>
