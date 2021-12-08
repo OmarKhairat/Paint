@@ -32,7 +32,6 @@ import { observable } from 'rxjs';
     layer!: Konva.Layer;
      
  
-
     color: string = 'black'
    stroke:number=3
    @ViewChild('menu ') menu!:ElementRef
@@ -110,9 +109,8 @@ import { observable } from 'rxjs';
            
            
             if(!inn && this.Selecting.move){
-              console.log(inn)
               console.log(this.Selecting.selectedShapes)
-              this.requests.editRequest()
+              this.requests.editRequest(this.Selecting.selectedShapes)
               
             }
           }
@@ -139,6 +137,7 @@ import { observable } from 'rxjs';
     }
     create(name:string)
     {
+      this.Selecting.editDragable(false)
       if(this.drawMode)
         this.changeDrawMode()
       var shift = this.operations.checkForShift(this.layer , name)
@@ -148,6 +147,7 @@ import { observable } from 'rxjs';
       this.layer.add(this.b)
       this.addSelection()
       this.requests.createRequest(this.b)
+
 
     }
 
@@ -181,6 +181,7 @@ import { observable } from 'rxjs';
 
     remove()
     {
+      this.requests.deleteReqest(this.Selecting.selectedShapes)
       this.operations.delete(this.Selecting.selectedShapes)
       this.Selecting.emptytr()
       this.requests.deleteReqest()
@@ -189,14 +190,14 @@ import { observable } from 'rxjs';
     fill()
     {
       this.ColorsOp.full(this.Selecting.selectedShapes,this.color)
-      this.requests.editRequest()
+      this.requests.editRequest(this.Selecting.selectedShapes)
 
     }
     changecolr()
     {
       if(!this.drawMode){
         this.ColorsOp.changeColor(this.Selecting.selectedShapes,this.color)
-        this.requests.editRequest()
+        this.requests.editRequest(this.Selecting.selectedShapes)
       }
 
     }
@@ -206,7 +207,7 @@ import { observable } from 'rxjs';
       
       console.log(this.Selecting.selectedShapes)
       this.ColorsOp.strokewidth(this.Selecting.selectedShapes,this.stroke)
-      this.requests.editRequest()
+      this.requests.editRequest(this.Selecting.selectedShapes)
     }
 
 

@@ -57,10 +57,9 @@ class Shapes{
         stroke:color,
         strokeWidth:stroke,
         draggable:true,
-        name:'rect'
-       
+        name:'rect',
+        id: "-1"
       });
-      console.log(stroke)
       return cir
     }
 
@@ -79,7 +78,8 @@ class Shapes{
             stroke: color,
             strokeWidth: stroke,
             draggable:true,
-            name:'rect'
+            name:'rect',
+            id: "-1"
 
           });
           return rect
@@ -100,8 +100,8 @@ class Shapes{
             stroke: color,
             strokeWidth: stroke,
             draggable:true,
-            name:'rect'
-
+            name:'rect',
+            id: "-1"
           });
           return sq
     }
@@ -121,7 +121,9 @@ class Shapes{
             stroke: color,
             strokeWidth: stroke,
             draggable:true,
-            name:'rect'
+            name:'rect',
+            id: "-1"
+
         });
         return tri
     }
@@ -141,7 +143,9 @@ class Shapes{
             stroke: color,
             strokeWidth: stroke,
             draggable:true,
-            name:'rect'
+            name:'rect',
+            id: "-1"
+
         });
         return elps
     }
@@ -157,7 +161,9 @@ class Shapes{
             tension: 1,
             draggable: true,
             strokeWidth: stroke,
-            name:'rect'  
+            name:'rect' , 
+            id: "-1"
+
         });
 
         return line

@@ -11,7 +11,7 @@ class Request{
 
     createRequest(shape: Konva.Shape){
         var jas = shape.toJSON()
-        this.http.get('http://localhost:8080/draw/shape',{
+        this.http.get('http://localhost:8080/controller/draw',{
           responseType:'text',
           params:{
               first:jas
@@ -20,17 +20,45 @@ class Request{
         })
         .subscribe(response=>{
         
-          console.log(response.body!)
+          var id = response.body!
+          shape.setAttr("id", id)
+          console.log(shape.getAttr("id"))
         
         })
-        //id <=
     }
 
-    editRequest(shape: Konva.Shape){
-
+    editRequest(shapes: Konva.Shape[]){
+      for(let i=0 ; i<shapes.length ; i++){
+        var shape = shapes[i]
+        var jas = shape.toJSON()
+        this.http.get('http://localhost:8080/controller/edit',{
+          responseType:'text',
+          params:{
+              shape:jas,
+              id : shape.getAttr("id")
+          },
+          observe:'response'
+        })
+        .subscribe(response=>{
+          console.log(response.body!)
+        })
+      }
     }
 
-    deleteReqest(shape: Konva.Shape){
+    deleteReqest(shapes: Konva.Shape[]){
+      for(let i=0 ; i<shapes.length ; i++){
+        var shape = shapes[i]
+        this.http.get('http://localhost:8080/controller/delete',{
+          responseType:'text',
+          params:{
+              id : shape.getAttr("id")
+          },
+          observe:'response'
+        })
+        .subscribe(response=>{
+          console.log(response.body!)
+        })
+      }
 
     }
 

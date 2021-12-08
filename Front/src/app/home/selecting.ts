@@ -6,7 +6,7 @@ class Selecting{
     tr:any   // transformar the square aroud the selected shape
     selected:any  //the big rectange on multible shape selection
 
-    selectedShapes: any
+    selectedShapes: Konva.Node[] = []
     move:boolean = false
     // for vertices of the selected rectangle
     x1:any
@@ -24,6 +24,7 @@ class Selecting{
     }
 
     mouseDown(e:any , stage: Konva.Stage){
+        this.editDragable(false)
 
         e.evt.preventDefault();
         this.x1 = stage.getPointerPosition()?.x;
@@ -65,10 +66,13 @@ class Selecting{
           );
           this.tr.nodes(select);
           this.selectedShapes = select
+          this.editDragable(true)
+
     }
 
     click(e:any , stage: Konva.Stage){
-        if (this.selected.visible()) {
+          this.editDragable(false)
+          if (this.selected.visible()) {
             return;
           }
           if (e.target === stage) {
@@ -91,12 +95,19 @@ class Selecting{
             this.tr.nodes(nodes);
           }
           this.selectedShapes= [e.target]
+          this.editDragable(true)
     }
 
     emptytr(){
         this.tr.nodes([]);
     }
     
+    editDragable(check: boolean){
+      for(let i=0; i< this.selectedShapes.length ; i++){
+        this.selectedShapes[i].setAttr("draggable", check)
+        console.log(this.selectedShapes[i].getAttr("draggable"))
+      }
+    }
 
 
 }

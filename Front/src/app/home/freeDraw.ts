@@ -24,7 +24,9 @@ class Draw{
             skewX: 1e-17,
             rotation: 1e-17,
             name:'rect',
-            draggable: true
+            draggable: true,
+            id: "-1"
+
           });
           layer.add(this.line);
           
