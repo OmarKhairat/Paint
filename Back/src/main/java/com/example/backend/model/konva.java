@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -24,6 +25,7 @@ public class konva
         undo = new Stack<Operation>();
         redo = new Stack<Operation>();
     }
+    ArrayList<Long> copyArr = new ArrayList<Long>();
     public static konva getInstance()
     {
         if(sheet == null)
@@ -66,7 +68,7 @@ public class konva
 //        System.out.println(gson.toJson(drawnShape.ShapeHM()));
 //        dd.testop();
 //        System.out.println("cloned :" + gson.toJson(dd.ShapeHM()));
-        System.out.println(gson.toJson(drawnShape.ShapeHM()));
+//        System.out.println(gson.toJson(drawnShape.ShapeHM()));
         undo.push(op);
         return  getCurrentID();
     }
@@ -115,15 +117,8 @@ public class konva
             {
                 long tempID =Long.parseLong(IDs.get(i).toString());
                 IShape drawnShape = shapes.get(tempID);
-                System.out.println("hhhhz: "+ drawnShape.ShapeHM().toString());
-                absShape absDrawnShape = (absShape)drawnShape;
-                absShape temp = (absShape)absDrawnShape.clone();
-                IShape ITemp = temp;
-                //remove underline
-                shapes.remove(tempID);
-                setCurrentID();
-                shapes.put(getCurrentID(), ITemp);
-                newIDs.put(getCurrentID());
+                long newID = drawShape(drawnShape.ShapeHM().toString());
+                newIDs.put(newID);
             }
         }
         catch (JSONException e)
