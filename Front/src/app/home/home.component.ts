@@ -49,10 +49,7 @@ import { observable } from 'rxjs';
    {
      this.menu.nativeElement.style.display="none"
    }
-   stop(e:any)
-   {
-     e.stopPropagtion();
-   }
+
 
     ngOnInit(): void {  
         
@@ -184,7 +181,6 @@ import { observable } from 'rxjs';
       this.requests.deleteReqest(this.Selecting.selectedShapes)
       this.operations.delete(this.Selecting.selectedShapes)
       this.Selecting.emptytr()
-      this.requests.deleteReqest()
 
     }
     fill()
