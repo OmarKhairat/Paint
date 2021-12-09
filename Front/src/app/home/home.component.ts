@@ -28,10 +28,10 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
     FreeDraw: Draw = new Draw
     drawMode: boolean = false
     drawflag: boolean = false
+    copyflag: boolean = false
     
     stage!: Konva.Stage;
     layer!: Konva.Layer;
-     rightClick: boolean = false
  
     color: string = 'black'
    stroke:number=3
@@ -44,11 +44,9 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
      this.menu.nativeElement.style.display="block"
      this.menu.nativeElement.style.top=e.pageY+"px"
      this.menu.nativeElement.style.left=e.pageX+"px"
-     this.rightClick = true
    }
    disappear()
    {
-    this.rightClick = false
      this.menu.nativeElement.style.display="none"
    }
    
@@ -115,14 +113,16 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
             }
           }
         } 
-
+        this.deleteAndCopyColor()
       });
 
       this.stage.on('click',  (e)=> {
         if(e.evt.which == 1){
           this.Selecting.click(e , this.stage)
+          this.deleteAndCopyColor()
         }
       }); 
+      
       
     }
 
@@ -148,7 +148,7 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
       this.layer.add(this.b)
       this.addSelection()
       this.requests.createRequest(this.b)
-
+      this.deleteAndCopyColor()
 
     }
 
@@ -180,11 +180,31 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
       }
     }
 
+    deleteAndCopyColor(){
+      console.log(this.Selecting.selectedShapes)
+      if(this.Selecting.selectedShapes.length !=0){
+        document.getElementById('copy')!.style.color ="orange";
+        document.getElementById('delete')!.style.color ="orange";
+        document.getElementById('copy2')!.style.color ="orange";
+        document.getElementById('delete2')!.style.color ="orange";
+        document.getElementById('fill')!.style.color ="orange";
+
+      }else{
+        document.getElementById('copy')!.style.color ="#111";
+        document.getElementById('delete')!.style.color ="#111";
+        document.getElementById('copy2')!.style.color ="#111";
+        document.getElementById('delete2')!.style.color ="#111";
+        document.getElementById('fill')!.style.color ="#111";
+
+      }
+    }
+
     remove()
     {
       this.requests.deleteReqest(this.Selecting.selectedShapes)
       this.operations.delete(this.Selecting.selectedShapes)
       this.Selecting.emptytr()
+      this.deleteAndCopyColor()
 
     }
     fill()
@@ -213,12 +233,26 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
     copy(){
       console.log(this.Selecting.selectedShapes.length)
       this.requests.copyRequest(this.Selecting.selectedShapes, [this.Selecting.tr.getAttr("x"), this.Selecting.tr.getAttr("y")] )
+
+      document.getElementById('copyButton')!.style.backgroundColor ="#777777";
+      document.getElementById('paste')!.style.color ="orange";
+      document.getElementById('paste2')!.style.color ="orange";
+
+
+      this.copyflag = true
     }
 
     paste(){
-      var pos = this.stage.getPointerPosition()!
-      var shapes =this.requests.pastRequest([pos.x, pos.y], this.layer)
+      if(this.copyflag){
+        var pos = this.stage.getPointerPosition()!
+        var shapes =this.requests.pastRequest([pos.x, pos.y], this.layer)
 
+        document.getElementById('copyButton')!.style.backgroundColor ="rgb(255, 255, 255)";
+        document.getElementById('paste')!.style.color ="#111";
+        document.getElementById('paste2')!.style.color ="#111";
+
+        this.copyflag = false
+      }
     }
 
 

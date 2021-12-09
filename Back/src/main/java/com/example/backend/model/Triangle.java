@@ -30,9 +30,10 @@ public class Triangle extends absShape implements IShape
             attrs.put("name", jsonObject2.getString("name"));
             attrs.put("scaleY", jsonObject2.getDouble("scaleY"));
             attrs.put("scaleX", jsonObject2.getDouble("scaleX"));
-            attrs.put("skewX", jsonObject2.getDouble("scaleY"));
+            attrs.put("skewX", jsonObject2.getDouble("skewX"));
             attrs.put("rotation", jsonObject2.getDouble("rotation"));
             attrs.put("strokeWidth", jsonObject2.getDouble("strokeWidth"));
+            attrs.put("sides", jsonObject2.getInt("sides"));
         }
         catch (JSONException e)
         {

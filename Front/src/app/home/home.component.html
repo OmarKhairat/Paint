@@ -24,7 +24,7 @@
      <div class="section display">
       <div class="font"> 
         <button (click)="paste()" class="button">
-           <i class="fas fa-paste "></i>
+           <i id="paste" class="fas fa-paste "></i>
            <p>paste</p>
         </button>
            <div class="display">
@@ -40,9 +40,9 @@
                     <div   >
                         <div class="custom-context"  #menu>
                               <ul>
-                                  <li (click)="copy()" (click) ="disappear()">  <i class="fas fa-copy "></i> copy</li>
-                                  <li (click)="paste()" (click) ="disappear()" >  <i class="fas fa-paste "></i> paste</li>
-                                  <li (click)='remove()'  (click) ="disappear()">  <i class="fas fa-eraser "></i> delete</li>
+                                  <li (click)="copy()" (click) ="disappear()">  <i id="copy2"  class="fas fa-copy "></i> copy</li>
+                                  <li (click)="paste()" (click) ="disappear()" >  <i id="paste2" class="fas fa-paste "></i> paste</li>
+                                  <li (click)='remove()'  (click) ="disappear()">  <i id="delete2"  class="fas fa-eraser "></i> delete</li>
                               </ul>
                     
                         </div>
@@ -58,8 +58,8 @@
          
          </div>
      <div class="font"> 
-         <button (click)="copy()" class="button">
-            <i class="fas fa-copy"></i>
+         <button id="copyButton" (click)="copy()" class="button">
+            <i id="copy" class="fas fa-copy"></i>
             <p>copy</p>
 
          </button>
@@ -105,7 +105,7 @@
                 <div>
                 
                 <button (click)='remove()' style="margin-top: 15px;" class="button">
-                    <i class="fas fa-eraser " style="color:orange; margin-top: 25px;" ></i>
+                    <i id="delete" class="fas fa-eraser " style="margin-top: 25px;" ></i>
                     <p>Delete</p>
                 </button>
 
@@ -116,7 +116,7 @@
        
        <div >
         <button (click)="fill()" style="margin-top: 15px;" class="button">
-            <i style="margin-top: 25px; color:orange; margin-left: 10px;" class="fas fa-fill"></i>
+            <i id="fill" style="margin-top: 25px; margin-left: 10px;" class="fas fa-fill"></i>
             <p style="margin-left: 10px;" >fill</p>
         </button>
 

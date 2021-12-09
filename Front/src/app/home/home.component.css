@@ -453,7 +453,32 @@
        color: white;
     }
 
-  
+#copy{
+    color: #111;
+} 
+#paste{
+    color: #111;
+
+}
+#delete{
+    color: #111;
+}
+
+#copy2{
+    color: #111;
+} 
+#paste2{
+    color: #111;
+
+}
+#delete2{
+    color: #111;
+}
+
+#fill{
+    color: #111;
+
+}
 
 #container{
     cursor: crosshair;
