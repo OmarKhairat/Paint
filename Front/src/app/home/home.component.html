@@ -1,5 +1,10 @@
 <div class="display">
-    <img style="margin-bottom: 5px;" src="assets/photos/draw.PNG">
+    <div>
+        <i class="fas fa-upload appear"   style="margin-top: 7px; color: silver; margin-left: 2px;"  ></i>
+        <div class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
+            load
+           </div>
+     </div>
     <div >
         <img class="appear" style="margin-top: 5px;" src="assets/photos/save.PNG">
         <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
@@ -7,17 +12,18 @@
            </div>
     </div>
     <div>
-        <img class="appear" style="margin-top: 1px;" src="assets/photos/redo.PNG">
-        <div class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
+        <img  class="appear" style="margin-top: 1px;" src="assets/photos/redo.PNG">
+        <div  class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
             redo
            </div>
     </div>
      <div>
-        <img src="assets/photos/undo.PNG" class="appear" style="margin-top: 2px;">
+        <img (click)="undo()" src="assets/photos/undo.PNG" class="appear" style="margin-top: 2px;">
         <div class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
             undo
            </div>
      </div>
+    
    
 </div>
 <div class="display" >

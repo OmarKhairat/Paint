@@ -444,6 +444,10 @@
     background-color: #777777;
 }
 
+.appear2:hover +.hide{
+    background-color: black;
+    color: white;
+}
 .hide{
     display: none;
    }
@@ -471,7 +475,7 @@
     color: #111;
 
 }
-#delete2{
+#delete{
     color: #111;
 }
 

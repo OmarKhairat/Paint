@@ -11,7 +11,7 @@ class Convert{
             }
 
 
-            var jsonshapeStr = JSON.stringify(jas[id])
+            var jsonshapeStr = JSON.stringify(  jas[id]  )
             console.log(jsonshapeStr)
             var shape = Konva.Node.create(jsonshapeStr, 'container')
             shape.setAttr("draggable", false)

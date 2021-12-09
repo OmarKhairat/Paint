@@ -9,7 +9,7 @@ import Request from './request';
 import { HttpClient } from '@angular/common/http';
 import { observable } from 'rxjs';
 import {HotkeysService , Hotkey} from 'angular2-hotkeys';
-
+import UndoRedo from './undoRedo';
 
 @Component({
     selector: 'home',
@@ -29,7 +29,7 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
     drawMode: boolean = false
     drawflag: boolean = false
     copyflag: boolean = false
-    
+    Undo:any = new UndoRedo
     stage!: Konva.Stage;
     layer!: Konva.Layer;
  
@@ -241,7 +241,6 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
 
       this.copyflag = true
     }
-
     paste(){
       if(this.copyflag){
         var pos = this.stage.getPointerPosition()!
@@ -254,13 +253,10 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
         this.copyflag = false
       }
     }
-
-
-
-
-
-
-
+    undo()
+    {
+      this.requests.undorequest(this.stage,this.layer)
+    }
     constructor(public http: HttpClient,private _hotkeysService: HotkeysService){ 
       this._hotkeysService.add(new Hotkey('del', (event: KeyboardEvent): boolean => {
         this.remove();
@@ -275,7 +271,4 @@ import {HotkeysService , Hotkey} from 'angular2-hotkeys';
         return false; // Prevent bubbling
       }));
     }
-
-    
-
   }

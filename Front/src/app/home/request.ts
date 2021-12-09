@@ -1,12 +1,13 @@
 import Konva from 'Konva';
 import Convert from './convert';
 import {HttpClient} from '@angular/common/http';
+import UndoRedo from './undoRedo';
 class Request{
     copyIDs: any
     selectedPos: any
 
     convert : Convert = new Convert
-
+    undo =new UndoRedo
     constructor(private http: HttpClient){}
 
 
@@ -115,6 +116,19 @@ class Request{
       .subscribe(response=>{
         console.log(response.body!)
         this.convert.jsonToShapes(response.body!, layer)
+      })
+    }
+    undorequest(stage: Konva.Stage, layer:Konva.Layer)
+    {
+      this.http.get('http://localhost:8080/controller/undo',{
+        responseType:'text',
+        params:{   
+        },
+        observe:'response'
+      })
+      .subscribe(response=>{
+        console.log(response.body!) 
+        this.undo.undo(stage ,response.body! ,layer)
       })
 
     }
