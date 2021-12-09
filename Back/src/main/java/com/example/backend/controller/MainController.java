@@ -22,7 +22,8 @@ public class MainController
     @GetMapping("/draw")
     public long drawShape(@RequestParam String first)
     {
-        return drawSheet.drawShape(first);
+        drawSheet.emptyRedo();
+        return drawSheet.drawShape(first, true);
 //        System.out.println(first);
 //
 //
@@ -61,12 +62,14 @@ public class MainController
     @GetMapping("/edit")
     public String editShape(@RequestParam String shape, @RequestParam String id)
     {
+        drawSheet.emptyRedo();
         drawSheet.preformEdition(shape, id);
         return "The Shape is edited.";
     }
     @GetMapping("/delete")
     public String deleteShape(@RequestParam String id)
     {
+        drawSheet.emptyRedo();
         drawSheet.preformDeletion(id);
         return "The Shape is deleted.";
     }
@@ -78,6 +81,17 @@ public class MainController
     @GetMapping("/Paste")
     public String PasteShape(@RequestParam String JString) throws JSONException
     {
+        drawSheet.emptyRedo();
         return drawSheet.preformPaste(JString);
+    }
+    @GetMapping("/undo")
+    public String getUndo() throws JSONException
+    {
+        return drawSheet.preformUndo();
+    }
+    @GetMapping("/redo")
+    public String getRedo() throws JSONException
+    {
+        return drawSheet.preformRedo();
     }
 }

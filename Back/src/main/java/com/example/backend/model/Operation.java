@@ -35,4 +35,12 @@ public class Operation
     {
         return  prevShapes;
     }
+    public String getName()
+    {
+        return name;
+    }
+    public JSONArray getIDs()
+    {
+        return IDs;
+    }
 }
