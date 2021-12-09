@@ -8,6 +8,7 @@ import Selecting from "./selecting"
 import Request from './request';
 import { HttpClient } from '@angular/common/http';
 import { observable } from 'rxjs';
+import {HotkeysService , Hotkey} from 'angular2-hotkeys';
 
 
 @Component({
@@ -225,8 +226,21 @@ import { observable } from 'rxjs';
 
 
 
-    constructor(public http: HttpClient){}
 
+    constructor(public http: HttpClient,private _hotkeysService: HotkeysService){ 
+      this._hotkeysService.add(new Hotkey('del', (event: KeyboardEvent): boolean => {
+        this.remove();
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('ctrl+c', (event: KeyboardEvent): boolean => {
+        this.copy();
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('ctrl+v', (event: KeyboardEvent): boolean => {
+        this.paste();
+        return false; // Prevent bubbling
+      }));
+    }
 
     
 

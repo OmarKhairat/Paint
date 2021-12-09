@@ -20,6 +20,7 @@
     "@angular/router": "~12.2.0",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "angular-canvas": "^0.3.0",
+    "angular2-hotkeys": "^2.4.0",
     "i": "^0.3.7",
     "konva": "^8.3.0",
     "ngx-color-picker": "^11.0.0",
