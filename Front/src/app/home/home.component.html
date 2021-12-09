@@ -40,7 +40,7 @@
                     <div   >
                         <div class="custom-context"  #menu>
                               <ul>
-                                  <li (click) ="disappear()">  <i class="fas fa-copy "></i> copy</li>
+                                  <li (click) ="disappear()">  <i (click)="copy()" class="fas fa-copy "></i> copy</li>
                                   <li  (click) ="disappear()" >  <i class="fas fa-paste "></i> paste</li>
                                   <li (click)='remove()'  (click) ="disappear()">  <i class="fas fa-eraser "></i> delete</li>
                               </ul>
@@ -58,7 +58,7 @@
          
          </div>
      <div class="font"> 
-         <button class="button">
+         <button (click)="copy()" class="button">
             <i class="fas fa-copy"></i>
             <p>copy</p>
 

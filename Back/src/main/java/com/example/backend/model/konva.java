@@ -80,7 +80,7 @@ public class konva
             IDs = jsonObject.getJSONArray("Id");
             for(int i = 0; i < IDs.length(); i++)
             {
-                long tempID = (long)IDs.get(i);
+                long tempID =Long.parseLong(IDs.get(i).toString());
                 IShape drawnShape = shapes.get(tempID);
                 absShape absDrawnShape = (absShape)drawnShape;
                 absShape temp = (absShape)absDrawnShape.clone();
@@ -112,7 +112,7 @@ public class konva
             JSONArray arrShape = new JSONArray();
             for(int i = 0; i < IDs.length(); i++)
             {
-                long tempID = (long) IDs.get(i);
+                long tempID = Long.parseLong(IDs.get(i).toString());
                 IShape tempShape = shapes.get(tempID);
                 tempShape.offset(deltaX, deltaY);
                 shapes.put(tempID, tempShape);
