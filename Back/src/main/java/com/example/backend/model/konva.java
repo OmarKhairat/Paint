@@ -115,7 +115,7 @@ public class konva
             {
                 long tempID =Long.parseLong(IDs.get(i).toString());
                 IShape drawnShape = shapes.get(tempID);
-                System.out.println("hhhhz: "+ drawnShape.toString());
+                System.out.println("hhhhz: "+ drawnShape.ShapeHM().toString());
                 absShape absDrawnShape = (absShape)drawnShape;
                 absShape temp = (absShape)absDrawnShape.clone();
                 IShape ITemp = temp;
