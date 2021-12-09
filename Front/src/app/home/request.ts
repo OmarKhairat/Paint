@@ -2,6 +2,7 @@ import Konva from 'Konva';
 import {HttpClient} from '@angular/common/http';
 class Request{
     copyIDs: any
+    selectedPos: any
 
     constructor(private http: HttpClient){}
     request(shape: Konva.Shape){
@@ -65,10 +66,11 @@ class Request{
 
     }
 
-    copyRequest(shapes: Konva.Shape[]){
+    copyRequest(shapes: Konva.Shape[], selectedpos:[]){
       if(shapes.length == 0)
         return
 
+      this.selectedPos = selectedpos
       let ids :string[] = []
       ids.length = shapes.length
       for(let i=0 ; i<shapes.length ; i++){

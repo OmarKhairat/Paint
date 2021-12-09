@@ -207,7 +207,7 @@ import { observable } from 'rxjs';
     }
 
     copy(){
-      this.requests.copyRequest(this.Selecting.selectedShapes)
+      this.requests.copyRequest(this.Selecting.selectedShapes, [this.Selecting.tr.getAttr("x"), this.Selecting.tr.getAttr("y")] )
     }
 
 
