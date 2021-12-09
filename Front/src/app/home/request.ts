@@ -1,16 +1,14 @@
 import Konva from 'Konva';
+import Convert from './convert';
 import {HttpClient} from '@angular/common/http';
 class Request{
     copyIDs: any
     selectedPos: any
 
-    constructor(private http: HttpClient){}
-    request(shape: Konva.Shape){
-        var jas = shape.toJSON()
-        console.log(jas)
-        console.log(typeof jas)
+    convert : Convert = new Convert
 
-    }
+    constructor(private http: HttpClient){}
+
 
     createRequest(shape: Konva.Shape){
         var jas = shape.toJSON()
@@ -92,6 +90,29 @@ class Request{
         this.copyIDs = JSON.parse(response.body!).values
         
       })
+    }
+
+    pastRequest(corsurPos: number[], layer: Konva.Layer){
+      var jassend = {
+        IDs : this.copyIDs,
+        deltaX : corsurPos[0]- this.selectedPos[0],
+        deltaY : corsurPos[1]- this.selectedPos[1]
+      }
+      var str = JSON.stringify(jassend)
+      console.log(str)
+      this.http.get('http://localhost:8080/controller/Paste',{
+        responseType:'text',
+        params:{
+            JString : str
+        },
+        observe:'response'
+      })
+      .subscribe(response=>{
+        console.log(response.body!)
+        //var jas = JSON.parse(response.body!)
+        this.convert.jsonToShapes(response.body!, layer)
+      })
+
     }
 
 }

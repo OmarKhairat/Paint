@@ -30,7 +30,7 @@ import { observable } from 'rxjs';
     
     stage!: Konva.Stage;
     layer!: Konva.Layer;
-     
+     rightClick: boolean = false
  
     color: string = 'black'
    stroke:number=3
@@ -43,12 +43,14 @@ import { observable } from 'rxjs';
      this.menu.nativeElement.style.display="block"
      this.menu.nativeElement.style.top=e.pageY+"px"
      this.menu.nativeElement.style.left=e.pageX+"px"
-     
+     this.rightClick = true
    }
    disappear()
    {
+    this.rightClick = false
      this.menu.nativeElement.style.display="none"
    }
+   
 
 
     ngOnInit(): void {  
@@ -116,8 +118,9 @@ import { observable } from 'rxjs';
       });
 
       this.stage.on('click',  (e)=> {
-        console.log("show")
-        this.Selecting.click(e , this.stage)
+        if(e.evt.which == 1){
+          this.Selecting.click(e , this.stage)
+        }
       }); 
       
     }
@@ -207,7 +210,14 @@ import { observable } from 'rxjs';
     }
 
     copy(){
+      console.log(this.Selecting.selectedShapes.length)
       this.requests.copyRequest(this.Selecting.selectedShapes, [this.Selecting.tr.getAttr("x"), this.Selecting.tr.getAttr("y")] )
+    }
+
+    paste(){
+      var pos = this.stage.getPointerPosition()!
+      var shapes =this.requests.pastRequest([pos.x, pos.y], this.layer)
+
     }
 
 

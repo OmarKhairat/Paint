@@ -23,7 +23,7 @@
 <div class="display" >
      <div class="section display">
       <div class="font"> 
-        <button class="button">
+        <button (click)="paste()" class="button">
            <i class="fas fa-paste "></i>
            <p>paste</p>
         </button>
@@ -41,7 +41,7 @@
                         <div class="custom-context"  #menu>
                               <ul>
                                   <li (click)="copy()" (click) ="disappear()">  <i class="fas fa-copy "></i> copy</li>
-                                  <li  (click) ="disappear()" >  <i class="fas fa-paste "></i> paste</li>
+                                  <li (click)="paste()" (click) ="disappear()" >  <i class="fas fa-paste "></i> paste</li>
                                   <li (click)='remove()'  (click) ="disappear()">  <i class="fas fa-eraser "></i> delete</li>
                               </ul>
                     

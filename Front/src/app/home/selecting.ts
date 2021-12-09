@@ -67,7 +67,7 @@ class Selecting{
           this.tr.nodes(select);
           this.selectedShapes = select
           this.editDragable(true)
-
+          console.log(this.selectedShapes.length)
     }
 
     click(e:any , stage: Konva.Stage){
