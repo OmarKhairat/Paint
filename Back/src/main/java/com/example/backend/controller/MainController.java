@@ -70,6 +70,14 @@ public class MainController
         drawSheet.preformDeletion(id);
         return "The Shape is deleted.";
     }
-
-
+    @GetMapping("/Copy")
+    public String CopyShape(@RequestParam String id) throws JSONException
+    {
+        return drawSheet.preformCopy(id);
+    }
+    @GetMapping("/Paste")
+    public String PasteShape(@RequestParam String JString) throws JSONException
+    {
+        return drawSheet.preformPaste(JString);
+    }
 }

@@ -4,16 +4,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
 
- interface IShape
+interface IShape extends Cloneable
 {
     void setProperties(String JString);
     HashMap<String, Object> ShapeHM();
+    void offset(double deltaX,double deltaY);
 }
 public class ShapeFactory
 {
     public IShape createShape(String JString)
     {
-//        IShape shape;
         try
         {
             JSONObject jsonObject = new JSONObject(JString);

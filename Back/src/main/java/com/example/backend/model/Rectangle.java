@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Rectangle implements IShape
+public class Rectangle extends absShape implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;
@@ -42,12 +42,20 @@ public class Rectangle implements IShape
             System.out.println("Error "+e.toString());
         }
     }
-
+    @Override
     public HashMap<String, Object> ShapeHM()
     {
         HashMap<String, Object> ans = new HashMap<String, Object>();
         ans.put("attrs", attrs);
         ans.put("className", className);
         return ans;
+    }
+    @Override
+    public void offset(double deltaX,double deltaY)
+    {
+        double xx = (double)attrs.get("x");
+        double yy = (double)attrs.get("y");
+        attrs.put("x", xx + deltaX);
+        attrs.put("y", yy + deltaY);
     }
 }

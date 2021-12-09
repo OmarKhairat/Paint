@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class FreeHand implements IShape
+public class FreeHand extends absShape implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;
@@ -31,6 +31,8 @@ public class FreeHand implements IShape
             attrs.put("rotation", jsonObject2.getDouble("rotation"));
             attrs.put("strokeWidth", jsonObject2.getDouble("strokeWidth"));
             attrs.put("skewX", jsonObject2.getDouble("skewX"));
+            attrs.put("x", jsonObject2.getDouble("x"));
+            attrs.put("y", jsonObject2.getDouble("y"));
 
         }
         catch (JSONException e)
@@ -38,12 +40,20 @@ public class FreeHand implements IShape
             System.out.println("Error "+e.toString());
         }
     }
-
+    @Override
     public HashMap<String, Object> ShapeHM()
     {
         HashMap<String, Object> ans = new HashMap<String, Object>();
         ans.put("attrs", attrs);
         ans.put("className", className);
         return ans;
+    }
+    @Override
+    public void offset(double deltaX,double deltaY)
+    {
+        double xx = (double)attrs.get("x");
+        double yy = (double)attrs.get("y");
+        attrs.put("x", xx + deltaX);
+        attrs.put("y", yy + deltaY);
     }
 }
