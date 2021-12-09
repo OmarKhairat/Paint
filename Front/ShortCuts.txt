@@ -1,0 +1,39 @@
+npm install angular2-hotkeys --save
+
+
+
+///////////////////////////////////////////app.module.ts
+
+
+import {HotkeyModule} from 'angular2-hotkeys';
+
+
+//imports
+    HotkeyModule.forRoot()
+
+/////////////////////////////////////////
+
+
+
+
+///////////////////////////////////////////////home.componont.ts
+import {HotkeysService , Hotkey} from 'angular2-hotkeys';
+
+
+constructor(public http: HttpClient,private _hotkeysService: HotkeysService){ 
+      this._hotkeysService.add(new Hotkey('del', (event: KeyboardEvent): boolean => {
+        this.remove();
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('ctrl+c', (event: KeyboardEvent): boolean => {
+        //this.copy();
+        console.log("Copy");
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('ctrl+v', (event: KeyboardEvent): boolean => {
+        //this.paste();
+        console.log("paste");
+        return false; // Prevent bubbling
+      }));
+    }
+////////////////////////////////////////////////////////////////
