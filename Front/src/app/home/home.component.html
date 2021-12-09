@@ -40,7 +40,7 @@
                     <div   >
                         <div class="custom-context"  #menu>
                               <ul>
-                                  <li (click) ="disappear()">  <i (click)="copy()" class="fas fa-copy "></i> copy</li>
+                                  <li (click)="copy()" (click) ="disappear()">  <i class="fas fa-copy "></i> copy</li>
                                   <li  (click) ="disappear()" >  <i class="fas fa-paste "></i> paste</li>
                                   <li (click)='remove()'  (click) ="disappear()">  <i class="fas fa-eraser "></i> delete</li>
                               </ul>
@@ -151,7 +151,7 @@
                 <div class="hide" style="border: 1px solid black ;width: 60px; position: fixed; z-index: 1000000;  ">
                     rectangle
                    </div>
-                <div><img class="appear" (click)='create("circle")' src="assets/photos/ellipse.PNG" style="margin-top:15px ; margin-left: 8px;">
+                <div><img class="appear" (click)='create("circle")' src="assets/photos/circle.PNG" style="margin-top:15px ; margin-left: 8px;">
                     <div class="hide" style="border: 1px solid black ;width: 40px; position: fixed; z-index: 1000000;  ">
                         circle
                        </div>
