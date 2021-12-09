@@ -119,6 +119,8 @@ public class konva
                 absShape absDrawnShape = (absShape)drawnShape;
                 absShape temp = (absShape)absDrawnShape.clone();
                 IShape ITemp = temp;
+                //remove underline
+                shapes.remove(tempID);
                 setCurrentID();
                 shapes.put(getCurrentID(), ITemp);
                 newIDs.put(getCurrentID());
