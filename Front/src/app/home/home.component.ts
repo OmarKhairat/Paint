@@ -206,6 +206,10 @@ import { observable } from 'rxjs';
       this.requests.editRequest(this.Selecting.selectedShapes)
     }
 
+    copy(){
+      this.requests.copyRequest(this.Selecting.selectedShapes)
+    }
+
 
 
 

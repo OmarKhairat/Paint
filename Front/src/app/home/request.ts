@@ -1,6 +1,8 @@
 import Konva from 'Konva';
 import {HttpClient} from '@angular/common/http';
 class Request{
+    copyIDs: any
+
     constructor(private http: HttpClient){}
     request(shape: Konva.Shape){
         var jas = shape.toJSON()
@@ -11,7 +13,8 @@ class Request{
 
     createRequest(shape: Konva.Shape){
         var jas = shape.toJSON()
-        this.http.get('http://localhost:8888/controller/draw',{
+        console.log(jas)
+        this.http.get('http://localhost:8080/controller/draw',{
           responseType:'text',
           params:{
               first:jas
@@ -31,7 +34,7 @@ class Request{
       for(let i=0 ; i<shapes.length ; i++){
         var shape = shapes[i]
         var jas = shape.toJSON()
-        this.http.get('http://localhost:8888/controller/edit',{
+        this.http.get('http://localhost:8080/controller/edit',{
           responseType:'text',
           params:{
               shape:jas,
@@ -48,7 +51,7 @@ class Request{
     deleteReqest(shapes: Konva.Shape[]){
       for(let i=0 ; i<shapes.length ; i++){
         var shape = shapes[i]
-        this.http.get('http://localhost:8888/controller/delete',{
+        this.http.get('http://localhost:8080/controller/delete',{
           responseType:'text',
           params:{
               id : shape.getAttr("id")
@@ -60,6 +63,33 @@ class Request{
         })
       }
 
+    }
+
+    copyRequest(shapes: Konva.Shape[]){
+      if(shapes.length == 0)
+        return
+
+      let ids :string[] = []
+      ids.length = shapes.length
+      for(let i=0 ; i<shapes.length ; i++){
+        var shape = shapes[i]
+        ids[i] = shape.getAttr("id")
+      }
+      var jasIDs ='{"Id":'.concat(JSON.stringify(ids)).concat('}')
+
+      console.log(jasIDs)
+      this.http.get('http://localhost:8080/controller/Copy',{
+        responseType:'text',
+        params:{
+            id : jasIDs
+        },
+        observe:'response'
+      })
+      .subscribe(response=>{
+        console.log(response.body!)
+        this.copyIDs = JSON.parse(response.body!).values
+        
+      })
     }
 
 }
