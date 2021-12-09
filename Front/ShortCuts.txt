@@ -35,5 +35,15 @@ constructor(public http: HttpClient,private _hotkeysService: HotkeysService){
         console.log("paste");
         return false; // Prevent bubbling
       }));
+      this._hotkeysService.add(new Hotkey('ctrl+z', (event: KeyboardEvent): boolean => {
+        //this.undo();
+        console.log("undo");
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('ctrl+y', (event: KeyboardEvent): boolean => {
+        //this.redo();
+        console.log("redo");
+        return false; // Prevent bubbling
+      }));
     }
 ////////////////////////////////////////////////////////////////
