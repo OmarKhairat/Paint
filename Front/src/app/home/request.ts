@@ -2,12 +2,14 @@ import Konva from 'Konva';
 import Convert from './convert';
 import {HttpClient} from '@angular/common/http';
 import UndoRedo from './undoRedo';
+import Load from './load';
 class Request{
     copyIDs: any
     selectedPos: any
 
     convert : Convert = new Convert
     undo =new UndoRedo
+    load = new Load
     constructor(private http: HttpClient){}
 
 
@@ -167,8 +169,7 @@ class Request{
         },
         observe:'response'
       }).subscribe(response=>{
-       // layer.remove()
-        this.convert.jsonToShapes(response.body! , layer)
+        this.load.doload(layer , response.body!)
       })
     }
 

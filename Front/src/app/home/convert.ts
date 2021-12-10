@@ -19,6 +19,7 @@ class Convert{
 
             shape.setAttr("id", id)
             console.log(shape)
+            
 
             layer.add(shape)
             console.log("out convert")
