@@ -102,7 +102,7 @@ public class MainController
 
     }
     @GetMapping("/load")
-    public void load() throws FileNotFoundException, JSONException {
-        drawSheet.load();
+    public String load() throws FileNotFoundException, JSONException {
+        return drawSheet.load();
     }
 }

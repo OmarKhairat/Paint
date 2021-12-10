@@ -361,7 +361,7 @@ public class konva
         }
     }
     String data;
-    public void load() throws FileNotFoundException, JSONException {
+    public String load() throws FileNotFoundException, JSONException {
 
         JSONObject json;
         JFrame parentFrame = new JFrame();
@@ -394,5 +394,6 @@ public class konva
 
             }
         }
+        return data;
     }
 }
