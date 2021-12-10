@@ -38,8 +38,6 @@ import UndoRedo from './undoRedo';
    @ViewChild('menu ') menu!:ElementRef
    contextMenu(e:any)
    {
-     console.log(e.pageX)
-     console.log(e.pageY)
      e.preventDefault()
      this.menu.nativeElement.style.display="block"
      this.menu.nativeElement.style.top=e.pageY+"px"
@@ -72,7 +70,6 @@ import UndoRedo from './undoRedo';
             this.drawflag = true
         }else{
           if (e.target !==this.stage){
-            console.log("qw")
              inn = true
             return
           }
@@ -105,9 +102,7 @@ import UndoRedo from './undoRedo';
           this.Selecting.mouseUp(e , this.stage)
           if(this.Selecting.selectedShapes.length !=0){
            
-            console.log(this.Selecting.tr.nodes())
             if(!inn && this.Selecting.move && this.Selecting.tr.nodes().length != 0){
-              console.log(this.Selecting.selectedShapes)
               this.requests.editRequest(this.Selecting.selectedShapes)
               
             }
@@ -143,7 +138,6 @@ import UndoRedo from './undoRedo';
         this.changeDrawMode()
       var shift = this.operations.checkForShift(this.layer , name)
       this.b = this.shapeCreator.createShape(name,this.color, 150+shift, 150+shift,this.stroke)
-      console.log(this.color)
       console.log(this.b)
       this.layer.add(this.b)
       this.addSelection()
@@ -176,7 +170,6 @@ import UndoRedo from './undoRedo';
     backGround(){
       if(this.drawMode){
         document.getElementById('draw')!.style.backgroundColor ="#777777";
-        console.log("inn")
       }else{
         document.getElementById('draw')!.style.backgroundColor = "rgb(255, 255, 255)";
       }
@@ -234,7 +227,6 @@ import UndoRedo from './undoRedo';
     }
 
     copy(){
-      console.log(this.Selecting.selectedShapes.length)
       this.requests.copyRequest(this.Selecting.selectedShapes, [this.Selecting.tr.getAttr("x"), this.Selecting.tr.getAttr("y")] )
 
       document.getElementById('copyButton')!.style.backgroundColor ="#777777";

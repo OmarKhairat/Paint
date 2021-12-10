@@ -80,7 +80,6 @@ class Request{
       }
       var jasIDs ='{"Id":'.concat(JSON.stringify(ids)).concat('}')
 
-      console.log(jasIDs)
       this.http.get('http://localhost:8080/controller/Copy',{
         responseType:'text',
         params:{
@@ -106,8 +105,7 @@ class Request{
         deltaY : corsurPos[1]- this.selectedPos[1]
       }
       var str = JSON.stringify(jassend)
-      console.log(corsurPos)
-      console.log(str)
+
       this.http.get('http://localhost:8080/controller/Paste',{
         responseType:'text',
         params:{
@@ -169,6 +167,7 @@ class Request{
         },
         observe:'response'
       }).subscribe(response=>{
+        
         this.load.doload(layer , response.body!)
       })
     }
