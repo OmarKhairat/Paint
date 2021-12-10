@@ -1,7 +1,6 @@
 package com.example.backend.model;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -394,6 +393,8 @@ public class konva
 
             }
         }
+
+        System.out.println(data);
         loadShapesToBack(data);
         return data;
     }
@@ -407,10 +408,10 @@ public class konva
         JSONArray loadIds = jsonObject.getJSONArray("IDs");
         for(int i = 0; i < loadIds.length(); i++)
         {
-            IdArr.add((long)loadIds.get(i));
-            String temp = loadIds.get(i).toString();
-            IShape tempShape = factory.createShape(jsonObject.getString(temp));
-            shapes.put((long)loadIds.get(i), tempShape);
+            String tempID=loadIds.get(i).toString();
+            IdArr.add(Long.parseLong(tempID));
+            IShape tempShape = factory.createShape(jsonObject.getString(tempID));
+            shapes.put(Long.parseLong(tempID), tempShape);
         }
     }
 }

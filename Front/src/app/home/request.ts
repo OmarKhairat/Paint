@@ -167,7 +167,7 @@ class Request{
         },
         observe:'response'
       }).subscribe(response=>{
-        layer.remove()
+       // layer.remove()
         this.convert.jsonToShapes(response.body! , layer)
       })
     }
