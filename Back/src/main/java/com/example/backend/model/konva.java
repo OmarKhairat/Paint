@@ -175,6 +175,10 @@ public class konva
     public void emptyRedo(){ redo.clear();}
     public String preformUndo() throws JSONException
     {
+        if(undo.empty())
+        {
+            return "Error";
+        }
         HashMap<String, Object> result = new HashMap<String, Object>();
         Operation tempOp = undo.pop();
         JSONArray tempArr = tempOp.getIDs();
@@ -223,6 +227,10 @@ public class konva
     }
     public String preformRedo() throws JSONException
     {
+        if(redo.empty())
+        {
+            return "Error";
+        }
         HashMap<String, Object> result = new HashMap<String, Object>();
         Operation tempOp = redo.pop();
         JSONArray tempArr = tempOp.getIDs();
