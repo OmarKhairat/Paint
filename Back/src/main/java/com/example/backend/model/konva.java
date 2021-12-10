@@ -5,9 +5,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
+import java.util.Scanner;
 
 public class konva
 {
@@ -286,5 +293,86 @@ public class konva
             HMAns.put(Long.toString(IdArr.get(i)), shapes.get(IdArr.get(i)).ShapeHM());
         }
         return gson.toJson(HMAns);
+    }
+    public void save() throws JSONException {
+
+        JFrame parentFrame = new JFrame();
+        boolean js;
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Specify a file to save");
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "xml files (*.xml)", "xml");
+        fileChooser.setFileFilter(filter);
+        filter = new FileNameExtensionFilter(
+                "json files (*.json)", "json");
+        fileChooser.setFileFilter(filter);
+
+        int userSelection = fileChooser.showSaveDialog(parentFrame);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String file = ((File) fileToSave).getAbsolutePath();
+            if (fileChooser.getFileFilter().equals(filter)){
+                if (!file.endsWith(".json"))
+                    file = new String(file + ".json");
+                js=true;
+            }
+            else {
+                if (!file.endsWith(".xml"))
+                    file = new String(file + ".xml");
+                js=false;
+            }
+            try {
+                File myObj = new File(file);
+                if (myObj.createNewFile()) {
+                    System.out.println("File created: " + myObj.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+            }catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+                return;
+            }
+            if (js) {
+                try {
+                    FileWriter myWriter = new FileWriter(file);
+                    System.out.println(this.jsonFileString());
+                    myWriter.write(this.jsonFileString());
+                    myWriter.close();
+                } catch (IOException e) {
+                    System.out.println("An error occurred.");
+                    e.printStackTrace();
+                }
+            }
+            else{
+            /*    String xml = convert(this.jsonFileString(), "root"); // This method converts json object to xml string
+                System.out.println(xml);*/
+            }
+        }
+    }
+    String data;
+    public void load() throws FileNotFoundException {
+        JFrame parentFrame = new JFrame();
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        fileChooser.setDialogTitle("Select xml file or Json file");
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("XML and JSON files", "xml", "json");
+        fileChooser.addChoosableFileFilter(filter);
+        int result = fileChooser.showOpenDialog(parentFrame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String file =selectedFile.getAbsolutePath();
+            if (file.endsWith(".json")){
+                Scanner myReader = new Scanner(selectedFile);
+                while (myReader.hasNextLine()) {
+                    this.data = myReader.nextLine();
+                    System.out.println(data);
+                }
+                myReader.close();
+
+            }
+        }
     }
 }

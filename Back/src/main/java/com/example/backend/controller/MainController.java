@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -96,13 +97,13 @@ public class MainController
     }
 
     @GetMapping("/save")
-    public void save() {
-        BackendApplication.save();
+    public void save() throws JSONException {
+        drawSheet.save();
 
     }
     @GetMapping("/load")
-    public void load() {
-        BackendApplication.load();
+    public void load() throws FileNotFoundException {
+        drawSheet.load();
 
     }
 }

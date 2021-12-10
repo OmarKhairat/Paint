@@ -158,6 +158,14 @@ class Request{
       }).subscribe(response=>{
          })
     }
+    loadrequest()
+    {
+      this.http.get('http://localhost:8080/controller/load',{
+        params:{   
+        },
+      }).subscribe(response=>{
+         })
+    }
 
 }
 export default Request

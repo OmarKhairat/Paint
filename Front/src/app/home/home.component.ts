@@ -275,6 +275,13 @@ import UndoRedo from './undoRedo';
     {
       this.requests.saverequest()
     }
+
+    load()
+    {
+      this.requests.loadrequest()
+    }
+
+
     constructor(public http: HttpClient,private _hotkeysService: HotkeysService){ 
       this._hotkeysService.add(new Hotkey('del', (event: KeyboardEvent): boolean => {
         this.remove();
