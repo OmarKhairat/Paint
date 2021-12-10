@@ -2,12 +2,14 @@ import Konva from 'Konva';
 import Convert from './convert';
 import {HttpClient} from '@angular/common/http';
 import UndoRedo from './undoRedo';
+import Load from './load';
 class Request{
     copyIDs: any
     selectedPos: any
 
     convert : Convert = new Convert
     undo =new UndoRedo
+    load = new Load
     constructor(private http: HttpClient){}
 
 
@@ -78,7 +80,6 @@ class Request{
       }
       var jasIDs ='{"Id":'.concat(JSON.stringify(ids)).concat('}')
 
-      console.log(jasIDs)
       this.http.get('http://localhost:8080/controller/Copy',{
         responseType:'text',
         params:{
@@ -104,8 +105,7 @@ class Request{
         deltaY : corsurPos[1]- this.selectedPos[1]
       }
       var str = JSON.stringify(jassend)
-      console.log(corsurPos)
-      console.log(str)
+
       this.http.get('http://localhost:8080/controller/Paste',{
         responseType:'text',
         params:{
@@ -167,8 +167,8 @@ class Request{
         },
         observe:'response'
       }).subscribe(response=>{
-       // layer.remove()
-        this.convert.jsonToShapes(response.body! , layer)
+        
+        this.load.doload(layer , response.body!)
       })
     }
 
