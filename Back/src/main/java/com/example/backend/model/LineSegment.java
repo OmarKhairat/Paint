@@ -1,8 +1,10 @@
 package com.example.backend.model;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LineSegment extends absShape implements IShape
@@ -21,7 +23,14 @@ public class LineSegment extends absShape implements IShape
         {
             JSONObject jsonObject = new JSONObject(JString);
             JSONObject jsonObject2 = new JSONObject(jsonObject.getString("attrs"));
-            attrs.put("points", jsonObject2.getJSONArray("points"));
+            ArrayList<Double> pts = new ArrayList<Double>();
+            JSONArray Jpts =  jsonObject2.getJSONArray("points");
+            for(int i = 0; i < Jpts.length(); i++)
+            {
+                String temp = Jpts.get(i).toString();
+                pts.add(Double.parseDouble(temp));
+            }
+            attrs.put("points", pts);
             attrs.put("stroke", jsonObject2.getString("stroke"));
             attrs.put("draggable", jsonObject2.getBoolean("draggable"));
             attrs.put("name", jsonObject2.getString("name"));
