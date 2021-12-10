@@ -277,4 +277,14 @@ public class konva
         }
         return "Error";
     }
+    public String jsonFileString()
+    {
+        HashMap<String, Object> HMAns = new HashMap<String, Object>();
+        HMAns.put("IDs", IdArr);
+        for(int i = 0; i < IdArr.size(); i++)
+        {
+            HMAns.put(Long.toString(IdArr.get(i)), shapes.get(IdArr.get(i)).ShapeHM());
+        }
+        return gson.toJson(HMAns);
+    }
 }
