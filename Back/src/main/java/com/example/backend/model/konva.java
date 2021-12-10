@@ -1,10 +1,11 @@
 package com.example.backend.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import org.json.XML;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import javax.swing.*;
@@ -346,13 +347,24 @@ public class konva
                 }
             }
             else{
-            /*    String xml = convert(this.jsonFileString(), "root"); // This method converts json object to xml string
-                System.out.println(xml);*/
+                JSONObject json = new JSONObject(this.jsonFileString());
+                String xml = XML.toString(json);
+                try {
+                    FileWriter myWriter = new FileWriter(file);
+                    System.out.println(xml);
+                    myWriter.write(xml);
+                    myWriter.close();
+                } catch (IOException e) {
+                    System.out.println("An error occurred.");
+                    e.printStackTrace();
+                }
             }
         }
     }
     String data;
-    public void load() throws FileNotFoundException {
+    public void load() throws FileNotFoundException, JSONException {
+
+        JSONObject json;
         JFrame parentFrame = new JFrame();
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Select xml file or Json file");
@@ -367,6 +379,16 @@ public class konva
                 Scanner myReader = new Scanner(selectedFile);
                 while (myReader.hasNextLine()) {
                     this.data = myReader.nextLine();
+                    System.out.println(data);
+                }
+                myReader.close();
+
+            }
+            else{
+                Scanner myReader = new Scanner(selectedFile);
+                while (myReader.hasNextLine()) {
+                    json =XML.toJSONObject(myReader.nextLine());
+                    data = json.toString();
                     System.out.println(data);
                 }
                 myReader.close();
