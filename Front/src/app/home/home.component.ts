@@ -169,6 +169,8 @@ import UndoRedo from './undoRedo';
         this.addSelection()
 
       this.backGround()
+      this.deleteAndCopyColor()
+
     }
 
     backGround(){
@@ -204,6 +206,7 @@ import UndoRedo from './undoRedo';
       this.requests.deleteReqest(this.Selecting.selectedShapes)
       this.operations.delete(this.Selecting.selectedShapes)
       this.Selecting.emptytr()
+      this.Selecting.selectedShapes = []
       this.deleteAndCopyColor()
 
     }
