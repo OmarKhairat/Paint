@@ -213,7 +213,6 @@ public class konva
                 long tempId = (long)tempArr.get(i);
                 result.put(Long.toString(tempId), gson.toJson(tempOp.getPrevShapes().get(Long.toString(tempId)).ShapeHM()));
                 IShape tempShape = shapes.get(tempId);
-                System.out.println("Marwan Pablo: "+ gson.toJson(tempOp.getPrevShapes().get(Long.toString(tempId)).ShapeHM()));
                 tempShape.setProperties(gson.toJson(tempOp.getPrevShapes().get(Long.toString(tempId)).ShapeHM()));
                 shapes.remove(tempId);
                 shapes.put(tempId, tempShape);

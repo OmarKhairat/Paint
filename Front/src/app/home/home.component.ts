@@ -310,5 +310,41 @@ import UndoRedo from './undoRedo';
         this.save();
         return false; // Prevent bubbling
       }));
+      this._hotkeysService.add(new Hotkey('ctrl+l', (event: KeyboardEvent): boolean => {
+        this.load();
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('f', (event: KeyboardEvent): boolean => {
+        this.fill();
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('d', (event: KeyboardEvent): boolean => {
+        this.changeDrawMode();
+        return false; // Prevent bubbling
+      })); 
+      this._hotkeysService.add(new Hotkey('s', (event: KeyboardEvent): boolean => {
+        this.create("square");
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('r', (event: KeyboardEvent): boolean => {
+        this.create("rectangle");
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('l', (event: KeyboardEvent): boolean => {
+        this.create("line");
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('c', (event: KeyboardEvent): boolean => {
+        this.create("circle");
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('t', (event: KeyboardEvent): boolean => {
+        this.create("triangle");
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('e', (event: KeyboardEvent): boolean => {
+        this.create("ellipse");
+        return false; // Prevent bubbling
+      }));
     }
   }

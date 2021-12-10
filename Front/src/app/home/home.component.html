@@ -1,26 +1,26 @@
 <div class="display">
     <div>
         <i (click)="load()" class="fas fa-upload appear"   style="margin-top: 7px; color: silver; margin-left: 2px;"  ></i>
-        <div class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
-            load
+        <div class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+            load (ctrl+L)
            </div>
      </div>
     <div >
         <img (click)="save()" class="appear" style="margin-top: 5px;" src="assets/photos/save.PNG">
-        <div class="hide" style="border: 1px solid black ;width: 30px; position: fixed; z-index: 1000000;  ">
-            save
+        <div class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+            save (ctrl+s)
            </div>
     </div>
     <div>
         <img (click)="redo()"  class="appear" style="margin-top: 1px;" src="assets/photos/redo.PNG">
-        <div  class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
-            redo
+        <div  class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+            redo (ctrl+y)
            </div>
     </div>
      <div>
         <img (click)="undo()" src="assets/photos/undo.PNG" class="appear" style="margin-top: 2px;">
-        <div class="hide" style="border: 1px solid black ;width: 35px; position: fixed; z-index: 1000000;  ">
-            undo
+        <div class="hide" style="border: 1px solid black ;width: 50px; position: fixed; z-index: 1000000;  ">
+            undo (ctrl+z)
            </div>
      </div>
     
@@ -46,7 +46,7 @@
                     <div   >
                         <div class="custom-context"  #menu>
                               <ul>
-                                  <li (click)="copy()" (click) ="disappear()">  <i id="copy2"  class="fas fa-copy "></i> copy</li>
+                                  <li (click)="copy()" (click) ="disappear()">  <i id="copy2"  class="fas fa-copy "></i> copy </li>
                                   <li (click)="paste()" (click) ="disappear()" >  <i id="paste2" class="fas fa-paste "></i> paste</li>
                                   <li (click)='remove()'  (click) ="disappear()">  <i id="delete2"  class="fas fa-eraser "></i> delete</li>
                               </ul>
@@ -112,7 +112,8 @@
                 
                 <button (click)='remove()' style="margin-top: 15px;" class="button">
                     <i id="delete" class="fas fa-eraser " style="margin-top: 25px;" ></i>
-                    <p>Delete</p>
+                    <p>Delete
+                        (del)</p>
                 </button>
 
                 </div>
@@ -123,7 +124,8 @@
        <div >
         <button (click)="fill()" style="margin-top: 15px;" class="button">
             <i id="fill" style="margin-top: 25px; margin-left: 10px;" class="fas fa-fill"></i>
-            <p style="margin-left: 10px;" >fill</p>
+            <p style="margin-left: 10px;" >fill
+            (f)</p>
         </button>
 
         <p style="margin-top: 10px; " >Tools</p>
@@ -132,7 +134,7 @@
         <div>
             <button (click)='changeDrawMode()' style="margin-top: 15px;" class="button" id="draw">
             <i class="fas fa-pen " style="color:orange; margin-top: 25px; margin-left: 5px;" ></i>
-            <p style="margin-left: 5px;" >Draw</p>
+            <p style="margin-left: 5px;" >Draw (d)</p>
 
             </button>
         
