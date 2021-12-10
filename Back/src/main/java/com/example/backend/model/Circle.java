@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class Circle extends absShape implements IShape
+public class Circle implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;
@@ -14,7 +14,6 @@ public class Circle extends absShape implements IShape
         attrs = new HashMap<String, Object>();
         className = "Circle";
     }
-//    {"attrs":{"fill":"transparent","x":190,"y":190,"radius":90,"stroke":"black","draggable":true,"name":"rect"},"className":"Circle"}
 
     @Override
     public void setProperties(String JString)

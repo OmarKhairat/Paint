@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class FreeHand extends absShape implements IShape
+public class FreeHand implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class Triangle extends absShape implements IShape
+public class Triangle implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;

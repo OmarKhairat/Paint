@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class Ellipse extends absShape implements IShape
+public class Ellipse implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;
@@ -17,7 +17,6 @@ public class Ellipse extends absShape implements IShape
     @Override
     public void setProperties(String JString)
     {
-//        {"attrs":{"fill":"transparent","x":150,"y":150,"radiusX":100,"radiusY":50,"stroke":"black","draggable":true,"name":"rect"},"className":"Ellipse"}
         try
         {
             JSONObject jsonObject = new JSONObject(JString);

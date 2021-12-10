@@ -62,20 +62,7 @@ public class konva
         tempArr.put(getCurrentID());
         tempHM.put(SID, drawnShape);
 
-        //END
-        drawnShape = shapes.get(getCurrentID());
-        /*
-        * test clone
-        * */
-//        IShape cloned = (IShape) drawnShape;
-//        absShape dd = (absShape)drawnShape;
-//        absShape aa = (absShape)dd.clone();
-//        IShape bb = aa;
-//        System.out.println("cloned :" + gson.toJson(bb.ShapeHM()));
-//        System.out.println(gson.toJson(drawnShape.ShapeHM()));
-//        dd.testop();
-//        System.out.println("cloned :" + gson.toJson(dd.ShapeHM()));
-//        System.out.println(gson.toJson(drawnShape.ShapeHM()));
+
         if(addToId)
         {
             Operation op = new Operation("Draw", tempArr);
@@ -96,7 +83,6 @@ public class konva
         IShape tempShape = shapes.get(id);
         PrevTempHM.put(StrID, tempShape);
         op.setPrevShapes(PrevTempHM);
-        System.out.println("Before:" + gson.toJson(shapes.get(id).ShapeHM()));
         shapes.remove(id);
         IShape testShape = factory.createShape(JString);
         IShape testShape2 = factory.createShape(JString);
@@ -104,7 +90,6 @@ public class konva
         NextTempHM.put(StrID, testShape2);
         op.setNextShape(NextTempHM);
         undo.push(op);
-        System.out.println("After:" + gson.toJson(shapes.get(id).ShapeHM()));
     }
     public void preformDeletion(String StrID)
     {
@@ -198,7 +183,6 @@ public class konva
             for(int i = 0; i < tempArr.length(); i++)
             {
                 long tempId = (long)tempArr.get(i);
-                System.out.println("help:    "+ tempId);
                 result.put(Long.toString(tempId), gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId)).ShapeHM()));
                 shapes.remove(tempId);
                 IdArr.remove(tempId);
@@ -262,9 +246,6 @@ public class konva
                 long tempId = (long)tempArr.get(i);
                 result.put(Long.toString(tempId), gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId)).ShapeHM()));
                 IShape testShape = factory.createShape(gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId)).ShapeHM()));
-//                IShape tempShape = shapes.get(tempId);
-//                System.out.println("Hello:   " + gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId))));
-//                tempShape.setProperties();
                 shapes.remove(tempId);
                 shapes.put(tempId, testShape);
             }
@@ -336,7 +317,6 @@ public class konva
             if (js) {
                 try {
                     FileWriter myWriter = new FileWriter(file);
-                    System.out.println(this.jsonFileString());
                     myWriter.write(this.jsonFileString());
                     myWriter.close();
                 } catch (IOException e) {
@@ -349,7 +329,6 @@ public class konva
                 String xml = XML.toString(json);
                 try {
                     FileWriter myWriter = new FileWriter(file);
-                    System.out.println(xml);
                     myWriter.write(xml);
                     myWriter.close();
                 } catch (IOException e) {
@@ -377,7 +356,6 @@ public class konva
                 Scanner myReader = new Scanner(selectedFile);
                 while (myReader.hasNextLine()) {
                     this.data = myReader.nextLine();
-                    System.out.println(data);
                 }
                 myReader.close();
 
@@ -387,14 +365,12 @@ public class konva
                 while (myReader.hasNextLine()) {
                     json =XML.toJSONObject(myReader.nextLine());
                     data = json.toString();
-                    System.out.println(data);
                 }
                 myReader.close();
 
             }
         }
 
-        System.out.println(data);
         loadShapesToBack(data);
         return data;
     }

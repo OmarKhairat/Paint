@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class LineSegment extends absShape implements IShape
+public class LineSegment implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;

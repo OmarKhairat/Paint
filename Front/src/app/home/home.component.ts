@@ -281,7 +281,7 @@ import UndoRedo from './undoRedo';
 
     load()
     {
-      this.requests.loadrequest()
+      this.requests.loadrequest(this.layer  )
     }
 
 

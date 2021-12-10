@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Rectangle extends absShape implements IShape
+public class Rectangle implements IShape
 {
     private String className;
     private HashMap<String, Object> attrs;
@@ -22,7 +22,6 @@ public class Rectangle extends absShape implements IShape
         {
             JSONObject jsonObject = new JSONObject(JString);
             JSONObject jsonObject2 = new JSONObject(jsonObject.getString("attrs"));
-//            {"fill":"transparent","x":160,"y":160,"width":150,"height":75,"stroke":"royalblue","draggable":true,"name":"rect"},"className":"Rect"}
             attrs.put("fill", jsonObject2.getString("fill"));
             attrs.put("x", jsonObject2.getDouble("x"));
             attrs.put("y", jsonObject2.getDouble("y"));
