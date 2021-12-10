@@ -94,4 +94,15 @@ public class MainController
     {
         return drawSheet.preformRedo();
     }
+
+    @GetMapping("/save")
+    public void save() {
+        BackendApplication.save();
+
+    }
+    @GetMapping("/load")
+    public void load() {
+        BackendApplication.load();
+
+    }
 }
