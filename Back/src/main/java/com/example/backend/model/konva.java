@@ -88,13 +88,14 @@ public class konva
         Operation op = new Operation("Edit", tempArr);
         IShape tempShape = shapes.get(id);
         PrevTempHM.put(StrID, tempShape);
-        System.out.println("Before:" + gson.toJson(shapes.get(id).ShapeHM()));
-        tempShape.setProperties(JString);
-        shapes.remove(id);
-        shapes.put(id, tempShape);
-        NextTempHM.put(StrID, tempShape);
-        op.setNextShape(NextTempHM);
         op.setPrevShapes(PrevTempHM);
+        System.out.println("Before:" + gson.toJson(shapes.get(id).ShapeHM()));
+        shapes.remove(id);
+        IShape testShape = factory.createShape(JString);
+        IShape testShape2 = factory.createShape(JString);
+        shapes.put(id, testShape);
+        NextTempHM.put(StrID, testShape2);
+        op.setNextShape(NextTempHM);
         undo.push(op);
         System.out.println("After:" + gson.toJson(shapes.get(id).ShapeHM()));
     }
@@ -105,7 +106,8 @@ public class konva
         long id = Long.parseLong(StrID);
         tempArr.put(id);
         Operation op = new Operation("Delete", tempArr);
-        PrevTempHM.put(StrID, shapes.get(StrID));
+        IShape testShape = factory.createShape(gson.toJson(shapes.get(id).ShapeHM()));
+        PrevTempHM.put(StrID, testShape);
         op.setPrevShapes(PrevTempHM);
         shapes.remove(id);
         IdArr.remove(id);
@@ -185,7 +187,8 @@ public class konva
             for(int i = 0; i < tempArr.length(); i++)
             {
                 long tempId = (long)tempArr.get(i);
-                result.put(Long.toString(tempId), gson.toJson(tempOp.getNextShapes().get(tempId).ShapeHM()));
+                System.out.println("help:    "+ tempId);
+                result.put(Long.toString(tempId), gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId)).ShapeHM()));
                 shapes.remove(tempId);
                 IdArr.remove(tempId);
             }
@@ -196,9 +199,10 @@ public class konva
             for(int i = 0; i < tempArr.length(); i++)
             {
                 long tempId = (long)tempArr.get(i);
-                result.put(Long.toString(tempId), gson.toJson(tempOp.getPrevShapes().get(tempId).ShapeHM()));
+                result.put(Long.toString(tempId), gson.toJson(tempOp.getPrevShapes().get(Long.toString(tempId)).ShapeHM()));
                 IShape tempShape = shapes.get(tempId);
-                tempShape.setProperties(gson.toJson(tempOp.getPrevShapes().get(tempId)));
+                System.out.println("Marwan Pablo: "+ gson.toJson(tempOp.getPrevShapes().get(Long.toString(tempId)).ShapeHM()));
+                tempShape.setProperties(gson.toJson(tempOp.getPrevShapes().get(Long.toString(tempId)).ShapeHM()));
                 shapes.remove(tempId);
                 shapes.put(tempId, tempShape);
             }
@@ -209,9 +213,8 @@ public class konva
             for(int i = 0; i < tempArr.length(); i++)
             {
                 long tempId = (long)tempArr.get(i);
-                result.put(Long.toString(tempId), gson.toJson(tempOp.getPrevShapes().get(tempId).ShapeHM()));
-                String JString = gson.toJson(tempOp.getPrevShapes().get(tempId));
-                shapes.put(tempId, tempOp.getPrevShapes().get(tempId));
+                result.put(Long.toString(tempId), gson.toJson(tempOp.getPrevShapes().get(Long.toString(tempId)).ShapeHM()));
+                shapes.put(tempId, tempOp.getPrevShapes().get(Long.toString(tempId)));
                 IdArr.add(tempId);
             }
             return gson.toJson(result);
@@ -232,8 +235,8 @@ public class konva
             for(int i = 0; i < tempArr.length(); i++)
             {
                 long tempId = (long)tempArr.get(i);
-                result.put(Long.toString(tempId), gson.toJson(tempOp.getNextShapes().get(tempId).ShapeHM()));
-                shapes.put(tempId, tempOp.getNextShapes().get(tempId));
+                result.put(Long.toString(tempId), gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId)).ShapeHM()));
+                shapes.put(tempId, tempOp.getNextShapes().get(Long.toString(tempId)));
                 IdArr.add(tempId);
             }
             return gson.toJson(result);
@@ -243,11 +246,13 @@ public class konva
             for(int i = 0; i < tempArr.length(); i++)
             {
                 long tempId = (long)tempArr.get(i);
-                result.put(Long.toString(tempId), gson.toJson(tempOp.getNextShapes().get(tempId).ShapeHM()));
-                IShape tempShape = shapes.get(tempId);
-                tempShape.setProperties(gson.toJson(tempOp.getNextShapes().get(tempId)));
+                result.put(Long.toString(tempId), gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId)).ShapeHM()));
+                IShape testShape = factory.createShape(gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId)).ShapeHM()));
+//                IShape tempShape = shapes.get(tempId);
+//                System.out.println("Hello:   " + gson.toJson(tempOp.getNextShapes().get(Long.toString(tempId))));
+//                tempShape.setProperties();
                 shapes.remove(tempId);
-                shapes.put(tempId, tempShape);
+                shapes.put(tempId, testShape);
             }
             return gson.toJson(result);
         }
@@ -256,7 +261,7 @@ public class konva
             for(int i = 0; i < tempArr.length(); i++)
             {
                 long tempId = (long)tempArr.get(i);
-                result.put(Long.toString(tempId), gson.toJson(tempOp.getPrevShapes().get(tempId).ShapeHM()));
+                result.put(Long.toString(tempId), gson.toJson(tempOp.getPrevShapes().get(Long.toString(tempId)).ShapeHM()));
                 shapes.remove(tempId);
                 IdArr.remove(tempId);
             }

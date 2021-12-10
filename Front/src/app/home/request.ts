@@ -132,6 +132,20 @@ class Request{
       })
 
     }
+    redorequest(stage: Konva.Stage, layer:Konva.Layer)
+    {
+      this.http.get('http://localhost:8080/controller/redo',{
+        responseType:'text',
+        params:{   
+        },
+        observe:'response'
+      })
+      .subscribe(response=>{
+        console.log(response.body!) 
+        this.undo.redo(stage ,response.body! ,layer)
+      })
+
+    }
 
 }
 export default Request

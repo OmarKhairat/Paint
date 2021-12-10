@@ -105,8 +105,8 @@ import UndoRedo from './undoRedo';
           this.Selecting.mouseUp(e , this.stage)
           if(this.Selecting.selectedShapes.length !=0){
            
-           
-            if(!inn && this.Selecting.move){
+            console.log(this.Selecting.tr.nodes())
+            if(!inn && this.Selecting.move && this.Selecting.tr.nodes().length != 0){
               console.log(this.Selecting.selectedShapes)
               this.requests.editRequest(this.Selecting.selectedShapes)
               
@@ -256,6 +256,18 @@ import UndoRedo from './undoRedo';
     undo()
     {
       this.requests.undorequest(this.stage,this.layer)
+      this.Selecting.emptytr()
+
+      this.deleteAndCopyColor()
+
+    }
+    redo()
+    {
+      this.requests.redorequest(this.stage,this.layer)
+      this.Selecting.emptytr()
+
+      this.deleteAndCopyColor()
+
     }
     constructor(public http: HttpClient,private _hotkeysService: HotkeysService){ 
       this._hotkeysService.add(new Hotkey('del', (event: KeyboardEvent): boolean => {
