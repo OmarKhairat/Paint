@@ -118,6 +118,7 @@ class Request{
         this.convert.jsonToShapes(response.body!, layer)
       })
     }
+
     undorequest(stage: Konva.Stage, layer:Konva.Layer)
     {
       this.http.get('http://localhost:8080/controller/undo',{
@@ -158,13 +159,17 @@ class Request{
       }).subscribe(response=>{
          })
     }
-    loadrequest()
+    loadrequest( layer: Konva.Layer)
     {
       this.http.get('http://localhost:8080/controller/load',{
+        responseType:'text',
         params:{   
         },
+        observe:'response'
       }).subscribe(response=>{
-         })
+        layer.remove()
+        this.convert.jsonToShapes(response.body! , layer)
+      })
     }
 
 }

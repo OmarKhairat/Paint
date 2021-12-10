@@ -20,11 +20,6 @@ class Convert{
             shape.setAttr("id", id)
             console.log(shape)
 
-            if(shape.className=="Line"){
-                console.log( shape.getAttr("points").values )
-                shape.setAttr("points", shape.getAttr("points").values)
-            }
-
             layer.add(shape)
             console.log("out convert")
 
