@@ -256,16 +256,18 @@ import UndoRedo from './undoRedo';
     undo()
     {
       this.requests.undorequest(this.stage,this.layer)
+      
+      this.Selecting.selectedShapes = []
       this.Selecting.emptytr()
-
       this.deleteAndCopyColor()
 
     }
     redo()
     {
       this.requests.redorequest(this.stage,this.layer)
-      this.Selecting.emptytr()
 
+      this.Selecting.selectedShapes = []
+      this.Selecting.emptytr()
       this.deleteAndCopyColor()
 
     }

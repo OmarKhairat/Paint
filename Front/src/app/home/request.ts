@@ -128,7 +128,9 @@ class Request{
       })
       .subscribe(response=>{
         console.log(response.body!) 
-        this.undo.undo(stage ,response.body! ,layer)
+        if(response.body! != "Error"){
+          this.undo.undo(stage ,response.body! ,layer)
+        }
       })
 
     }
@@ -142,7 +144,9 @@ class Request{
       })
       .subscribe(response=>{
         console.log(response.body!) 
-        this.undo.redo(stage ,response.body! ,layer)
+        if(response.body! != "Error"){
+          this.undo.redo(stage ,response.body! ,layer)
+        }
       })
 
     }
