@@ -394,6 +394,23 @@ public class konva
 
             }
         }
+        loadShapesToBack(data);
         return data;
+    }
+    void loadShapesToBack(String JString) throws JSONException
+    {
+        shapes.clear();
+        undo.clear();
+        redo.clear();
+        IdArr.clear();
+        JSONObject jsonObject = new JSONObject(JString);
+        JSONArray loadIds = jsonObject.getJSONArray("IDs");
+        for(int i = 0; i < loadIds.length(); i++)
+        {
+            IdArr.add((long)loadIds.get(i));
+            String temp = loadIds.get(i).toString();
+            IShape tempShape = factory.createShape(jsonObject.getString(temp));
+            shapes.put((long)loadIds.get(i), tempShape);
+        }
     }
 }
