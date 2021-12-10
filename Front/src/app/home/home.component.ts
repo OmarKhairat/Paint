@@ -269,6 +269,10 @@ import UndoRedo from './undoRedo';
       this.deleteAndCopyColor()
 
     }
+    save()
+    {
+      this.requests.saverequest()
+    }
     constructor(public http: HttpClient,private _hotkeysService: HotkeysService){ 
       this._hotkeysService.add(new Hotkey('del', (event: KeyboardEvent): boolean => {
         this.remove();
@@ -280,6 +284,18 @@ import UndoRedo from './undoRedo';
       }));
       this._hotkeysService.add(new Hotkey('ctrl+v', (event: KeyboardEvent): boolean => {
         this.paste();
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('ctrl+z', (event: KeyboardEvent): boolean => {
+        this.undo();
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('ctrl+y', (event: KeyboardEvent): boolean => {
+        this.redo();
+        return false; // Prevent bubbling
+      }));
+      this._hotkeysService.add(new Hotkey('ctrl+s', (event: KeyboardEvent): boolean => {
+        this.save();
         return false; // Prevent bubbling
       }));
     }

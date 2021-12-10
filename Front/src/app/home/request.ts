@@ -146,6 +146,14 @@ class Request{
       })
 
     }
+    saverequest()
+    {
+      this.http.get('http://localhost:8080/controller/save',{
+        params:{   
+        },
+      }).subscribe(response=>{
+         })
+    }
 
 }
 export default Request
