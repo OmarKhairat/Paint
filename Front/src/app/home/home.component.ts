@@ -169,6 +169,7 @@ import UndoRedo from './undoRedo';
         this.addSelection()
 
       this.backGround()
+      this.Selecting.selectedShapes = []
       this.deleteAndCopyColor()
 
     }
@@ -235,14 +236,15 @@ import UndoRedo from './undoRedo';
 
     copy(){
       console.log(this.Selecting.selectedShapes.length)
-      this.requests.copyRequest(this.Selecting.selectedShapes, [this.Selecting.tr.getAttr("x"), this.Selecting.tr.getAttr("y")] )
+      if(this.Selecting.selectedShapes.length !=0){
+        this.requests.copyRequest(this.Selecting.selectedShapes, [this.Selecting.tr.getAttr("x"), this.Selecting.tr.getAttr("y")] )
 
-      document.getElementById('copyButton')!.style.backgroundColor ="#777777";
-      document.getElementById('paste')!.style.color ="orange";
-      document.getElementById('paste2')!.style.color ="orange";
-
-
-      this.copyflag = true
+        document.getElementById('copyButton')!.style.backgroundColor ="#777777";
+        document.getElementById('paste')!.style.color ="orange";
+        document.getElementById('paste2')!.style.color ="orange";
+        
+        this.copyflag = true
+      }
     }
     paste(){
       if(this.copyflag){
