@@ -7,7 +7,6 @@ class Shapes{
     
     createShape(name: string, color: string, x:number, y:number ,stroke:number)
     {
-        console.log('in')
 
         switch (name){
             case 'circle':{

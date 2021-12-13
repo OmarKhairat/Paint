@@ -105,7 +105,6 @@ class Selecting{
     editDragable(check: boolean){
       for(let i=0; i< this.selectedShapes.length ; i++){
         this.selectedShapes[i].setAttr("draggable", check)
-        console.log(this.selectedShapes[i].getAttr("draggable"))
       }
     }
 
