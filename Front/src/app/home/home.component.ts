@@ -220,6 +220,27 @@ import UndoRedo from './undoRedo';
 
     }
 
+    downloadURI(uri: string, name: string) {
+      var link = document.createElement('a');
+      link.download = name;
+      link.href = uri;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    download(){
+      var rect= new Konva.Rect({
+        fill:"white",
+        width: this.stage.width(),
+        height: this.stage.height(),
+
+      })
+      this.layer.add(rect)
+      rect.moveToBottom()
+      this.layer.draw()
+      var dataURL = this.stage.toDataURL({ pixelRatio: 3 });
+      this.downloadURI(dataURL, 'stage.png');
+    }
     changeline()
     {
       
